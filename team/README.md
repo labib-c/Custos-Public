@@ -1,5 +1,5 @@
 People at COMPANY NAME
 ---
 
-- [Jane Doe, Engineering](./jane_doe.md)
+- [Labib Chowdhury, Business and Engineering](./labib_chowdhury.md)
 - ...
