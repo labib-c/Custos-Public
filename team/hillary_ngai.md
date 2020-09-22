@@ -21,8 +21,7 @@ Hillary Ngai is a MSc in Computer Science student at the University of Toronto a
 
 - Machine Learning (Natural Language Processing and Computer Vision)
 - Data Science and Statistics 
-- Public Speaking
-- Communication 
+- Public Speaking and Communication 
 - Organization
 - Has a positive mindset and is personable
 
@@ -30,4 +29,4 @@ Hillary Ngai is a MSc in Computer Science student at the University of Toronto a
 
 - Requires at least 8 hours of sleep a day to function properly
 - Gets hungry easily
-- Speaks without a filter
+- Can only do 10 push ups
