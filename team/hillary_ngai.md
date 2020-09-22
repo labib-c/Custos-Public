@@ -1,6 +1,6 @@
 # Hillary Ngai
 
-![Hillary Ngai Profile](./hillary_ngai.jpeg =250x)
+<img src="./hillary_ngai.jpeg" alt="drawing" width="200"/>
 
 - Machine Learning Researcher, Vector Institute
 - Computer Science Master's Student, University of Toronto
