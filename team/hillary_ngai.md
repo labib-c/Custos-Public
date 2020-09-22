@@ -9,7 +9,7 @@
 
 ## Links
 
-- [GitHub](https://github.com/labib-c)
+- [GitHub](https://github.com/HillaryNgai)
 - [LinkedIn](https://www.linkedin.com/in/hillary-ngai/)
 - [Resume](./hillary_ngai_resume.pdf)
 
