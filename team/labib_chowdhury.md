@@ -10,7 +10,7 @@
 - [GitHub](https://github.com/labib-c)
 - [LinkedIn](https://www.linkedin.com/in/labib-c/)
 - [Website](http://labibc.com/)
-- [Resume](http://www.labibc.com/static/media/resume.673977ce.pdf)
+- [Resume](http://www.labibc.com/static/media/resume.ba2abb16.pdf)
 
 ## About Labib
 
