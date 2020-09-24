@@ -1,25 +1,8 @@
-# Team Repo Template
-
-This Repository includes a template for your assignments.
-
-Follow [these instructions](https://help.github.com/en/articles/creating-a-repository-from-a-template) to create a repo in the `dcsil` organization for your Assignment.
-
-## Requirements
-
-You must [add the following topics](https://help.github.com/en/articles/classifying-your-repository-with-topics#adding-topics-to-your-repository) to the repository:
-
-- `W2020` (indicates Winter 2020. If it is not Winter 2020, I forgot to update this. Please make a PR on this repo to update it to the appropriate term!)
-- `assignment`
-
-### README template starts below this line 👇👇👇
-
-----
-
-# COMPANY NAME
+# CUSTOS
 
 ![Team Logo](./logo.png)
 
-COMPANY NAME is a company founded in the THEME industry. COMPANY NAME aims to VISION STATEMENT.
+Custos (meaning 'guard' in Latin) is a company founded in the cybersecurity industry. Custos aims to prevent dataloss within your company allowing you to operate with ease of mind.
 
 Table of Contents
 ---
