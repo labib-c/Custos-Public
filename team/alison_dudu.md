@@ -1,6 +1,6 @@
 # Alison Dudu
 
-
+![Alison_Dudu Profile](./rsz_alison_dudu.jpg)
 
 - B.A. Candidate (International Relations and Economics), University of Toronto
 - alison.dudu@mail.utoronto.ca
