@@ -6,4 +6,3 @@ People at COMPANY NAME
 - [Conor Vedova, Computer Science & Mathematics Student](./conor_vedova.md)
 - [Devin Singh, Paediatric Emergency Medicine Physician & Clinical Machine Learning Specialist](./devin_singh.md)
 - [Alison Dudu, International Relations and Economics Student](./alison_dudu.md)
-- ...
