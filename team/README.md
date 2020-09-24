@@ -1,4 +1,4 @@
-People at COMPANY NAME
+People at Custos
 ---
 ### Business and Engineering
 - [Labib Chowdhury, Computer Science & Statistics Student](./labib_chowdhury.md)
