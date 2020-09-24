@@ -1,6 +1,6 @@
 People at Custos
 ---
-### Business and Engineering
+### Software Engineering
 - [Labib Chowdhury, Computer Science & Statistics Student](./labib_chowdhury.md)
 - [Conor Vedova, Computer Science & Mathematics Student](./conor_vedova.md)
 
