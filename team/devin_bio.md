@@ -1,4 +1,4 @@
-# Devin Singh
+# Dr. Devin Singh
 
 ![Devin Singh Profile](./devin_singh.jpg)
 
