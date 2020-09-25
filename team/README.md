@@ -10,3 +10,6 @@ People at Custos
 
 ### Business
 - [Alison Dudu, International Relations and Economics Student](./alison_dudu.md)
+
+
+## [Team Principles](./Team_Principles.pdf)
