@@ -25,12 +25,14 @@ Our team has great experience in ML and Software Engineering. Labib's expertise 
 Our team's expertise has a lack of understanding of cybersecurity. We aim to fill this gap by reaching out to domain experts and researching the field. We also have a lack of expertise in UX/UI design. If we want to expand to an international market, we don't have anyone familiar with this process. Culturaly, most of us are from Canada or the US. So, it may be difficult for us to expand to other markets as we may not understand the culture there.
 
 ### Subject Matter Experts
-Everyone at Custos plays a role as a Subject Matter Expert (SME) in many differing fields.
-Our team does not directly have deep subject matter expertise in the financial sector cyber security space. As a result we have identified external subject matter experts who are providing consultation and mentorship throughout our development process: Brian Lynch - TD bank and a past fraud detection specialist and manager, Pouria Mashouri – Master of computer science and experience full-stack developer, machine learning programmer, and system administrator with experience in cybersecurity.
+We aim to bridge our knowledge in topics we're not familiar with through Subject Matter Experts. By working with people fom RBC who have experience researching and creating cybersecurity products, they can provide us with the necessary information to guide us in the right direction. Along with this, we have identified external subject matter experts who are providing consultation and mentorship throughout our development process: Brian Lynch - TD bank and a past fraud detection specialist and manager, Pouria Mashouri – Master of computer science and experience full-stack developer, machine learning programmer, and system administrator with experience in cybersecurity. 
+For our lack of UI/UX design experience, we can speak to students and professionals who are experience in design. These subject matter experts can be found through our own personal networks, for example Labib's TA from his introductory UX/UI course. 
+In order to bridge the gap in our knowledge of international markets, it would be useful to speak with Mario due to his vast knowledge in business and his connections in international markets.
+
 
 ## Diversity
 
-Our team has a varied background, but we acknowledge that we do not have people experienced in/who are UX/UI Design.
+As mentioned above, our team has a lack of diversity 
 
 ### How this can impact us
 
