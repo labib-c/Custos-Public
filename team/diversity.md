@@ -16,6 +16,8 @@ Devin Singh has a diverse background both culturally and throughout his career. 
 His working experience is rather diverse as follows: managing camps at the YMCA, selling jeans at the Gap, working for the Ontario Ministry of Finance & Revenue as a business analyst, launching a successful corporate media production company, working as a paediatrican and emergency physician at SickKids hospital, to now founder and CEO of an AI based tech start-up company within it’s first year. Out of all this experience Devin states, “I have never learnt more about the art of persuasion and communication as I did when selling jeans at the Gap. The lessons learned have rippled throughout my entire professional career and are skills I still lean on to this day as an Emergency doctor.”
 This breadth of exposure in life allows Devin to see past the obvious and the skill set required to engage with clients to drill deeper into understanding what the true problems are at hand are and how best to solve them with technology and workflow optimization.
 
+Conor was born at McMaster University Hospital and raised in New Jersey. He lived there for 18 years then went off to University in Toronto. His family now resides in Florida. He studies Computer Science and Mathematics at the University of Toronto. He has work experience at a startup called Bibbit and ML experience from internships at Raymond James Financial and Google. He has also worked in ML as a researcher at the Vector Institute for two years. Conor's interests are very diverse including being the lead in his highschool musical.
+
 ## Strengths & Weaknesses
 
 Our team has....
