@@ -32,10 +32,10 @@ In order to bridge the gap in our knowledge of international markets, it would b
 
 ## Diversity
 
-As mentioned above, our team has a lack of diversity 
+As mentioned above, our team has a lack of diversity in multiple academic areas. Culturally, we all come from a similar background as many of us were raised in the United States or Canada. As a result, we would gain greatly from having people from other backgrounds and cultures who may have different inputs. Furthermore, it can be difficult to create a well designed website without having a diverse set of engineers. For example, we don't have anyone who is colorblind. So, we might not be able to design a website well for someone with vision disorders. Furthermore, we may fall into the trap of unconscious bias in this regard because if our website looks good to all of us, we may assume that everyone feels the same way.
 
 ### How this can impact us
 
-This makes it difficult to create an application in which the main focus relies on explainability and interpretability. Having someone with experience in developing applications based around what features user's focus on would be extremely beneficial to create a user-friendly, customer centric interface. [Can we change this its kind of trash]
+This makes it difficult to create an application in which the main focus relies on explainability and interpretability. Having someone with experience in developing applications based around what features user's focus on would be extremely beneficial to create a user-friendly, customer centric interface. Our lack of diversity culturally may harm our company when expanding to different industries or markets.
 
-People with backgrounds that differ from out own can help us in the THEME industry because...
+People with backgrounds that differ from our own can help us in the BFSI industry because someone with a cybersecurity background could provide huge insights.
