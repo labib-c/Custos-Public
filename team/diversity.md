@@ -20,11 +20,12 @@ Conor was born at McMaster University Hospital and raised in New Jersey. He live
 
 ## Strengths & Weaknesses
 
-Our team has....
+Our team has great experience in ML and Software Engineering. Labib's expertise lies in full-stack web development. Although the product will rely on complex Machine Learning models, the customer will need to interact with this in a simple, aesthetically pleasing way. Labib's experience in developing web apps through personal projects and coursework will prove to be useful when creating a product that is handled by the end user. Hillary is a subject matter expert in data science, machine learning, and biomedical engineering. She provides valuable insight into how our team can use data, statistics, and machine learning to build an explainable, insider-threat detection system to prevent data loss and ultimately, save our customer's money. Conor shares expertise in both web development and ML so he will be able to work in both of these areas and streamline the process. Alison provides useful expertise on the business and organization side. She has great experience giving pitches. Devin has great managerial and startup skills. He has experience with running a startup and knows many people within the industry. 
+
+Our team's expertise has a lack of understanding of cybersecurity. We aim to fill this gap by reaching out to domain experts and researching the field. We also have a lack of expertise in UX/UI design. If we want to expand to an international market, we don't have anyone familiar with this process. 
 
 ### Subject Matter Experts
 Everyone at Custos plays a role as a Subject Matter Expert (SME) in many differing fields.
-Labib's expertise lies in full-stack web development. Although the product will rely on complex Machine Learning models, the customer will need to interact with this in a simple, aesthetically pleasing way. Labib's experience in developing web apps through personal projects and coursework will prove to be useful when creating a product that is handled by the end user. Hillary is a subject matter expert in data science, machine learning, and biomedical engineering. She provides valuable insight into how our team can use data, statistics, and machine learning to build an explainable, insider-threat detection system to prevent data loss and ultimately, save our customer's money.
 Our team does not directly have deep subject matter expertise in the financial sector cyber security space. As a result we have identified external subject matter experts who are providing consultation and mentorship throughout our development process: Brian Lynch - TD bank and a past fraud detection specialist and manager, Pouria Mashouri – Master of computer science and experience full-stack developer, machine learning programmer, and system administrator with experience in cybersecurity.
 
 ## Diversity
