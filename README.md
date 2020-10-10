@@ -12,3 +12,10 @@ Table of Contents
 - [Product & Research](./product_research/)
     - [Market](./product_research/market.md)
     - [Roadmap](./product_research/roadmap.md)
+- [Architecture Diagram](#architecture-diagram)
+
+
+
+### Architecture Diagram
+
+![Architecture](./architecture-diagram.png)
