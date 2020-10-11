@@ -2,12 +2,6 @@
 
 This describes our plans to develop our product which will aid large companies within the BFSI industry in detecting and explaining anomalous behaviour to prevent internal threats and data loss.
 
-- Setup a roadmap for at least the duration of this course. You may go longer to indicate long term goals. The roadmap can include as much detail as you want with the following conditions:
-    - Must include your immediate next steps
-    - Must include plans to perform user research
-    - Must include low-fidelity plans for a launch date
-    - You fill in the gaps. Be careful not to go too detailed as we have limited knowledge still.
-
 ## Short Term
 
 **Duration:** Q4 2020
@@ -18,9 +12,7 @@ We intend to develop and deploy a minimal viable product by the end of Q4. This 
 
 **Duration:** Q1 2021
 
-We intend to... medium-level of detail plans.
-
-We plan to launch a barebones alpha version in the medium term.
+We intend to improve the MVP based on customer feedback (specifically RBC) as well as conducting user research on additional potential customers. As far as machine learning, we intend to update algorithms to increase performance and explainability. Furthermore, we intend to fine tune models so they function on additional customer datasets.
 
 ## Long Term
 
