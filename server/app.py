@@ -1,9 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/test", methods=["GET"])
 def hello():
-    return "Hello World!"
+    return {
+        "response": "Hello World!"
+    }
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
