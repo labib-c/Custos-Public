@@ -23,4 +23,4 @@ services:
             - CHOKIDAR_USEPOLLING=true
             - NODE_ENV=development
         links:
-            - server:server
+            - server
