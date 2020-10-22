@@ -1,4 +1,6 @@
 # CUSTOS
+![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg)
+![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg)
 
 ![Team Logo](./logo.png)
 
