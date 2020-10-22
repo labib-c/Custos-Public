@@ -1,0 +1,24 @@
+name: Client Continuous Integration
+
+on:
+    push:
+      branches: [ master ]
+    pull_request:
+      branches: [ master ]
+
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install Dependencies
+      - run: npm ci
+      - name: Test with Jest
+      - run: npm test
+      - name: Validate Build
+      - run: npm run build
