@@ -1,0 +1,7 @@
+echo "Running Client Tests:"
+echo " "
+cd client && npm test
+
+echo "Running Server Tests:"
+echo " "
+cd ../server && pytest

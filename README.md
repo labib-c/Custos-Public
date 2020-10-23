@@ -62,6 +62,11 @@ cd server && sudo bash run_docker.sh
 
 ### Testing
 
+To run all tests:
+```
+sudo bash script/run_all_tests
+```
+
  To test client:
  ```
  cd client && npm test
