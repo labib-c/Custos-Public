@@ -7,6 +7,9 @@ if [ -x "$(command -v docker)" ]; then
     # run docker-compose to bring up containers
     echo "Bringing up containers"
     echo "======================"
+    echo "Building..."
+    docker-compose build
+    echo "Running..."
     docker-compose up -d
     echo " "
     echo "Client running on: http://localhost:3000/"
