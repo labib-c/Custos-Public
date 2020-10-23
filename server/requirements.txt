@@ -1,2 +1,5 @@
 Flask==1.1.2
 pytest==6.1.1
+pyrebase
+sentry-sdk[flask]
+rsa==4.0
