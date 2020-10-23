@@ -1,7 +1,22 @@
-# python
+#!/bin/bash
+set -e
 
-# node
+# install docker if not already installed
+if [ -x "$(command -v docker)" ]; then
+    docker info
+    # run docker-compose to bring up containers
+    echo "Bringing up containers"
+    echo "======================"
+    docker-compose up -d
+    echo " "
+    echo "Client running on: http://localhost:3000/"
+    echo "Server running on: http://localhost:5000/"
+    echo "======================"
+    echo "Run script/bring_down to terminate app."
+    
+else
+    echo "Install docker to run this application"
+    exit 1
+fi
 
-# react
 
-# docker
