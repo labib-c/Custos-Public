@@ -1,6 +1,6 @@
 # CUSTOS
-![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg)
-![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg)
+![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg?branch=dev-setup)
+![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg?branch=dev-setup)
 ![Deployment](https://github.com/dcsil/Custos/workflows/.github/workflows/deploy.yml/badge.svg?branch=master)
 
 ![Team Logo](./logo.png)
