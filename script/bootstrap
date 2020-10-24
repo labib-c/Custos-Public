@@ -10,7 +10,7 @@ if [ -x "$(command -v docker)" ]; then
     echo "Building..."
     docker-compose build
     echo "Running..."
-    docker-compose up -d
+    docker-compose -p custos up -d
     echo " "
     echo "Client running on: http://localhost:3000/"
     echo "Server running on: http://localhost:5000/"

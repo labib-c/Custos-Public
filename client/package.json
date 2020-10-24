@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://server:5000",
   "dependencies": {
     "@sentry/react": "^5.27.0",
     "@sentry/tracing": "^5.27.0",

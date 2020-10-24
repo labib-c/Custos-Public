@@ -1,4 +1,4 @@
-docker-compose down
+docker-compose -p custos down
 RESULT=$?
 if [ $RESULT -ne 0]; then
     echo "Something went wrong while bringing down containers. Consider cleaning docker images manually"

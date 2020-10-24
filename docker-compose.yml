@@ -3,6 +3,7 @@ version: '3.7'
 services:
     server:
         build: ./server
+        container_name: custos_server
         command: app.py run -h 0.0.0.0
         volumes:
           - ./server/:/usr/src/app/
@@ -17,6 +18,7 @@ services:
         build: 
           context: ./client
           dockerfile: Dockerfile
+        container_name: custos_client
         ports:
             - '3000:3000'
         environment:
