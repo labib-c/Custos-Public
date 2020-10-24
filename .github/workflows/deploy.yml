@@ -1,0 +1,41 @@
+name: Deploy App to Heroku
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Build and Deploy Custos Client
+          working-directory: ./client
+          uses: akhileshns/heroku-deploy@v3.6.8 
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "custos-client" 
+            heroku_email: "labibc01@gmail.com"
+            usedocker: true
+        - name: Verify Client is Running
+          uses: jtalk/url-health-check-action@v1.2
+          with:
+            url: https://custos-client.herokuapp.com
+            follow-redirect: no 
+            max-attempts: 3 
+            retry-delay: 5s 
+        - name: Build and Deploy Custos Server
+          working-directory: ./server
+          uses: akhileshns/heroku-deploy@v3.6.8 
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "custos-server" 
+            heroku_email: "labibc01@gmail.com"
+            usedocker: true
+        - name: Verify Server is Running
+          uses: jtalk/url-health-check-action@v1.2
+          with:
+            url: https://custos-server.herokuapp.com/test
+            follow-redirect: no 
+            max-attempts: 3 
+            retry-delay: 5s 

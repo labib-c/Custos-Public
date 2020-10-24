@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+# install docker if not already installed
+if [ -x "$(command -v docker)" ]; then
+    docker info
+    # run docker-compose to bring up containers
+    echo "Bringing up containers"
+    echo "======================"
+    echo "Building..."
+    docker-compose build
+    echo "Running..."
+    docker-compose -p custos up -d
+    echo " "
+    echo "Client running on: http://localhost:3000/"
+    echo "Server running on: http://localhost:5000/"
+    echo "======================"
+    echo "Run script/bring_down to terminate app."
+    
+else
+    echo "Install docker to run this application"
+    exit 1
+fi
+
+
