@@ -15,6 +15,7 @@ jobs:
           heroku_app_name: "custos-client"
           heroku_email: "labibc01@gmail.com"
           appdir: "./client"
+          usedocker: true 
           healthcheck: "https://custos-client.herokuapp.com/"
         env:
           HD_CHECK: "true"
@@ -29,6 +30,7 @@ jobs:
           heroku_app_name: "custos-server"
           heroku_email: "labibc01@gmail.com"
           appdir: "./server"
+          usedocker: true
           healthcheck: "https://custos-server.herokuapp.com/"
         env:
           HD_CHECK: "true"
