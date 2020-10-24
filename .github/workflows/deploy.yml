@@ -12,38 +12,30 @@ jobs:
         - name: Build and Deploy Custos Client
           working-directory: ./client
           uses: akhileshns/heroku-deploy@v3.6.8 
-            with:
+          with:
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: "custos-client" #Must be unique in Heroku
+            heroku_app_name: "custos-client" 
             heroku_email: "labibc01@gmail.com"
             usedocker: true
         - name: Verify Client is Running
           uses: jtalk/url-health-check-action@v1.2
-            with:
-              # Check the following URLs one by one sequentially
+          with:
             url: https://custos-client.herokuapp.com
-              # Follow redirects, or just report success on 3xx status codes
-            follow-redirect: no # Optional, defaults to "no"
-              # Fail this action after this many failed attempts
-            max-attempts: 3 # Optional, defaults to 1
-              # Delay between retries
-            retry-delay: 5s # Optional, only applicable to max-attempts > 1
+            follow-redirect: no 
+            max-attempts: 3 
+            retry-delay: 5s 
         - name: Build and Deploy Custos Server
           working-directory: ./server
-          uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
-            with:
+          uses: akhileshns/heroku-deploy@v3.6.8 
+          with:
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: "custos-server" #Must be unique in Heroku
+            heroku_app_name: "custos-server" 
             heroku_email: "labibc01@gmail.com"
             usedocker: true
         - name: Verify Server is Running
           uses: jtalk/url-health-check-action@v1.2
-            with:
-                # Check the following URLs one by one sequentially
+          with:
             url: https://custos-server.herokuapp.com/test
-                # Follow redirects, or just report success on 3xx status codes
-            follow-redirect: no # Optional, defaults to "no"
-                # Fail this action after this many failed attempts
-            max-attempts: 3 # Optional, defaults to 1
-                # Delay between retries
-            retry-delay: 5s # Optional, only applicable to max-attempts > 1
+            follow-redirect: no 
+            max-attempts: 3 
+            retry-delay: 5s 
