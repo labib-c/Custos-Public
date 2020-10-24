@@ -1,7 +1,7 @@
 # CUSTOS
 ![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg)
 ![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg)
-![Deployment](https://github.com/dcsil/Custos/workflows/.github/workflows/deploy.yml/badge.svg?branch=master)
+![Deploy App to Heroku](https://github.com/dcsil/Custos/workflows/Deploy%20App%20to%20Heroku/badge.svg)
 
 ![Team Logo](./logo.png)
 
