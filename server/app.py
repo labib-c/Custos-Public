@@ -30,7 +30,10 @@ def hello():
 
 @app.route("/test_firebase_post_world", methods=["POST"])
 def post_data():
-    db.child("Hello").remove()
+    data = {
+        "name": "Mortimer 'Morty' Smith"
+    }
+    results = db.child("users").push(data)
 
 @app.route("/test_firebase_get", methods=["GET"])
 def get_data():
