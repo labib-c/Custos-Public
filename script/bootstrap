@@ -3,7 +3,7 @@ set -e
 
 # install docker if not already installed
 if [ -x "$(command -v docker)" ]; then
-    docker info
+    docker info > /dev/null 2>&1
     # run docker-compose to bring up containers
     echo "Bringing up containers"
     echo "======================"
@@ -18,8 +18,15 @@ if [ -x "$(command -v docker)" ]; then
     echo "Run script/bring_down to terminate app."
     
 else
-    echo "Install docker to run this application"
-    exit 1
+    echo "You do not have Docker installed or running."
+    while true; do
+        read -p "Do you want to install Docker (y/n)" yn
+        case $yn in
+            [Yy]* ) curl -sSL https://get.docker.com/ | sh ; echo "Please re run script with Docker running"; exit 0;;
+            [Nn]* ) echo "Please install Docker to run this app"; exit 1;;
+            * ) echo "Please enter y/n";;
+        esac
+    done
 fi
 
 
