@@ -1,5 +1,5 @@
 tools:
-  logging: TODO
+  logging: https://app.logdna.com/8472fab2bd/logs/view
   exceptions: https://sentry.io/organizations/dcsil/issues/?project=5450618
   server-ci: https://github.com/dcsil/Custos/actions?query=workflow%3A%22Server+Continuous+Integration%22
   client-ci: https://github.com/dcsil/Custos/actions?query=workflow%3A%22Client+Continuous+Integration%22
