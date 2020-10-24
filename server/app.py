@@ -18,7 +18,7 @@ config = {
     "authDomain": "custos-ae3f4.firebaseapp.com",
     "databaseURL": "https://custos-ae3f4.firebaseio.com",
     "storageBucket": "custos-ae3f4.appspot.com"
-  }
+}
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
@@ -28,12 +28,13 @@ def hello():
         "response": "Hello World!"
     }
 
-@app.route("/test_firebase_post_world", methods=["POST"])
+@app.route("/test_post", methods=["POST"])
 def post_data():
     data = {
         "name": "Mortimer 'Morty' Smith"
     }
     results = db.child("users").push(data)
+    return "Post Successful"
 
 @app.route("/test_firebase_get", methods=["GET"])
 def get_data():
