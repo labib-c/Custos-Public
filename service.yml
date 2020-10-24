@@ -1,11 +1,14 @@
 tools:
+  logging: TODO
   exceptions: https://sentry.io/organizations/dcsil/issues/?project=5450618
   server-ci: https://github.com/dcsil/Custos/actions?query=workflow%3A%22Server+Continuous+Integration%22
   client-ci: https://github.com/dcsil/Custos/actions?query=workflow%3A%22Client+Continuous+Integration%22
 
 services:
-  production: https://... (link to the dashboard, not the running app)
+  production: https://dashboard.heroku.com/apps/custos-client
   database: https://custos-ae3f4.firebaseio.com
+  client: https://custos-client.herokuapp.com/
+  server: https://custos-server.herokuapp.com/
 
 docs:
   getting_started: ./README.md
@@ -16,10 +19,3 @@ commands:
   client: docker-compose up client
   test: bash script/run_all_tests
   
-  
-  
-tools:
-  logging: https://app.logdna.com/b1e9dedef0/logs/view
-
-services:
-  production: https://dashboard.heroku.com/apps/klucth-app

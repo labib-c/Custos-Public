@@ -1,0 +1,27 @@
+name: Deploy App to Heroku
+
+on:
+    push:
+        branches: [ master ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Build and Deploy Custos Client
+          working-directory: ./client
+          uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
+            with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "custos-client" #Must be unique in Heroku
+            heroku_email: "labibc01@gmail.com"
+            usedocker: true
+        - name: Build and Deploy Custos Server
+          working-directory: ./server
+          uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
+            with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "custos-server" #Must be unique in Heroku
+            heroku_email: "labibc01@gmail.com"
+            usedocker: true

@@ -2,6 +2,7 @@ import sentry_sdk
 from flask import Flask, render_template
 from sentry_sdk.integrations.flask import FlaskIntegration
 import pyrebase
+import os
 
 sentry_sdk.init(
     dsn="https://5dbbf50c14ee4124ad7a7e5124be414a@o358880.ingest.sentry.io/5450618",
@@ -10,6 +11,7 @@ sentry_sdk.init(
 )
 
 app = Flask(__name__)
+port = int(os.environ.get("PORT", 5000))
 
 config = {
     "apiKey": "AIzaSyDqRTPVxnozbD5GBacGS76CmsdWAlE4p9g",
@@ -40,4 +42,4 @@ def trigger_error():
     division_by_zero = 1 / 0
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=port)
