@@ -1,9 +1,11 @@
 # CUSTOS
 ![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg)
 ![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg)
-![Deploy to Heroku](https://github.com/dcsil/Custos/workflows/Deploy%20to%20Heroku/badge.svg)
+![Deployment](https://github.com/dcsil/Custos/workflows/.github/workflows/deploy.yml/badge.svg?branch=master)
 
 ![Team Logo](./logo.png)
+
+![Alternate Logo](./logo-2.png)
 
 Custos (meaning 'guard' in Latin) is a company founded in the cybersecurity industry. Custos aims to prevent dataloss within your company allowing you to operate with ease of mind.
 
