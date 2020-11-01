@@ -19,7 +19,7 @@ This section consists of the rough notes and recordings of the interviews.
 
 ### Brian Lynch (TD Data Scientist)
 
-[View Interview Here](https://drive.google.com/file/d/19ir-XFPIcjHCvIiLDr5TN9JxTETxNPcc/view?usp=sharing)
+[View Interview Here](https://drive.google.com/file/d/19ir-XFPIcjHCvIiLDr5TN9JxTETxNPcc/view)
 
 - found anomalous findings easily
 - was able to identify why event was an anomaly
@@ -44,7 +44,7 @@ This section consists of the rough notes and recordings of the interviews.
 
 
 ### Jacob Chmura (RBC AI Engineer Intern)
-[View Interview Here](https://drive.google.com/file/d/1Vt8VStF4Lp6qavXwtB7MuLppKVQyZS9s/view?usp=sharing)
+[View Interview Here](https://drive.google.com/file/d/1Vt8VStF4Lp6qavXwtB7MuLppKVQyZS9s/view)
 
 - found anomalous findings easily
 - had a hard time understanding why finding was flagged as anomaly, could not immediately identify reasoning
