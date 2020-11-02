@@ -15,7 +15,7 @@ Table of Contents
 - [People](./team/)
 - [Diversity](./team/diversity.md)
 - [Product & Research](./product_research/)
-    - [Market](./product_research/market.md)
+    - [User Research](./product_research/user-research.md)
     - [Roadmap](./product_research/roadmap.md)
 - [Getting Started](#getting-started)
     - [Requirements](#requirements)
