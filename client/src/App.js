@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
+import Sidebar from "./Components/SideBarComponent/Sidebar"
 import './App.css';
 
 Sentry.init({
@@ -18,6 +19,9 @@ Sentry.init({
 function App() {
   return (
     <div className="App">
+      <Sidebar>
+
+      </Sidebar>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
