@@ -6,8 +6,8 @@ tools:
     client: https://github.com/dcsil/Custos/actions?query=workflow%3A%22Client+Continuous+Integration%22
 
 services:
-  production: https://dashboard.heroku.com/apps/custos-client
-  client: https://custos-client.herokuapp.com/
+  production: https://custos-client.herokuapp.com/
+  dashboard: https://dashboard.heroku.com/apps/custos-client
   server: https://custos-server.herokuapp.com/
 
 docs:
