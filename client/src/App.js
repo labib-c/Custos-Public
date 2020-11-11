@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 import Sidebar from "./Components/SideBarComponent/Sidebar"
+import DataTable from "./Components/TableComponent/DataTable"
 import './App.css';
 
 Sentry.init({
@@ -20,9 +21,9 @@ function App() {
   return (
     <div className="App">
       <Sidebar>
-
+        <DataTable></DataTable>
       </Sidebar>
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Custos Web Application
@@ -35,7 +36,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

@@ -19,6 +19,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import WarningIcon from '@material-ui/icons/Warning';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { getThemeProps } from '@material-ui/styles';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export default function Sidebar(){
+export default function Sidebar(props){
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -123,6 +124,9 @@ export default function Sidebar(){
             ))}
             </List>
         </Drawer>
+        <div>
+            {props.children}
+        </div>
         </div>
     );
 }
