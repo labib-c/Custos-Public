@@ -12,7 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import { red } from '@material-ui/core/colors';
+import WarningIcon from '@material-ui/icons/Warning';
 
 const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
@@ -149,6 +149,11 @@ export default function DataTable(props){
       setPage(0);
     };
 
+    const handleRowClick = (event, id) => {
+      // this is where we would navigate to single anomaly page
+      console.log(id)
+    }
+
     return (
         <Paper className={classes.root}>
           <h2 style={{textAlign: 'left'}}>
@@ -191,6 +196,7 @@ export default function DataTable(props){
                           </TableCell>
                         );
                       })}
+                    {row.anomaly ? <IconButton onClick={e => {handleRowClick(e, row.name)}}><WarningIcon className={classes.anomaly}></WarningIcon></IconButton> : ''}
                     </TableRow>
                   );
                 })}
