@@ -85,7 +85,7 @@ const useStyles = makeStyles({
       width: 1,
     },
     anomaly: {
-      backgroundColor: "#ff9b9b",
+      color: "#ff6961",
     }
   });
 
