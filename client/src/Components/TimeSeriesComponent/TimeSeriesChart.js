@@ -44,13 +44,13 @@ export default function TimeSeries(props) {
     return(
         <Paper className={classes.root} variant="outlined">
             <h2 style={{textAlign: 'left'}} > Activity  
-            <ButtonGroup style={{margin: "5px"}} size="small" aria-label="small outlined button group">
+            <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
                 <Button disabled={filter == '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
                 <Button disabled={filter == '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
                 <Button disabled={filter == '1y'} value="1y" onClick={e => {handleToggle(e)}}>1Y</Button>
             </ButtonGroup>
             </h2>
-            <div style={{height: "70%", width: "100%"}}>
+            <div style={{height: "80%", width: "100%"}}>
             <ResponsiveLine
                 data={selectData(props.data)}
                 margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
