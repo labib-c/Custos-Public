@@ -20,7 +20,7 @@ const useStyles = makeStyles({
       flexGrow: 1,
       width: '100%',
       padding: "10px",
-      margin: "30px",
+      margin: "15px",
     },
     container: {
       maxHeight: 440,
@@ -107,7 +107,7 @@ export default function DataTable(props){
     }
 
     return (
-        <Paper className={classes.root}>
+        <Paper className={classes.root} variant="outlined">
           <h2 style={{textAlign: 'left'}}>
           Findings
           <Tooltip title={!filter ? "Only Anomalies" : "All Findings"}>

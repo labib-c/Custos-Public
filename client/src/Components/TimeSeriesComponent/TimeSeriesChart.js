@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ResponsiveLine } from '@nivo/line'
@@ -9,8 +10,8 @@ const useStyles = makeStyles({
         // display: "flex",
         // alignItems: "center",
         // justifyContent: "center",
-        height: "20em",
-        width: "60em",
+        height: "30em",
+        width: "50em",
         padding: "10px",
         margin: "15px",
     }
@@ -41,7 +42,7 @@ export default function TimeSeries(props) {
         }
     }
     return(
-        <div className={classes.root}>
+        <Paper className={classes.root} variant="outlined">
             <h2 style={{textAlign: 'left'}} > Activity  
             <ButtonGroup style={{margin: "5px"}} size="small" aria-label="small outlined button group">
                 <Button disabled={filter == '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
@@ -49,6 +50,7 @@ export default function TimeSeries(props) {
                 <Button disabled={filter == '1y'} value="1y" onClick={e => {handleToggle(e)}}>1Y</Button>
             </ButtonGroup>
             </h2>
+            <div style={{height: "70%", width: "100%"}}>
             <ResponsiveLine
                 data={selectData(props.data)}
                 margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -109,5 +111,6 @@ export default function TimeSeries(props) {
                     }
                 ]}
             />
-        </div>)
+            </div>
+        </Paper>)
 }
