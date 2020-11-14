@@ -3,18 +3,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { ResponsiveLine } from '@nivo/line'
+import { ResponsivePie } from '@nivo/pie'
 
 const useStyles = makeStyles({
     root: {
         height: "30em",
-        width: "45em",
+        width: "30em",
         padding: "10px",
         margin: "15px",
     }
 });
 
-export default function TimeSeries(props) {
+export default function Doughnut(props) {
     const classes = useStyles()
     const [filter, setFilter] = React.useState("1m")
 
@@ -40,7 +40,7 @@ export default function TimeSeries(props) {
     }
     return(
         <Paper className={classes.root} variant="outlined">
-            <h2 style={{textAlign: 'left'}} > Activity  
+            <h2 style={{textAlign: 'left'}} > Distribution
             <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
                 <Button disabled={filter == '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
                 <Button disabled={filter == '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
@@ -48,60 +48,41 @@ export default function TimeSeries(props) {
             </ButtonGroup>
             </h2>
             <div style={{height: "80%", width: "100%"}}>
-            <ResponsiveLine
+            <ResponsivePie
                 data={selectData(props.data)}
-                margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-                xScale={{ type: 'point' }}
-                yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
-                yFormat=" >-.2f"
-                axisTop={null}
-                axisRight={null}
-                axisBottom={{
-                    orient: 'bottom',
-                    tickSize: 5,
-                    tickPadding: 5,
-                    tickRotation: 0,
-                    legend: 'transportation',
-                    legendOffset: 36,
-                    legendPosition: 'middle'
-                }}
-                axisLeft={{
-                    orient: 'left',
-                    tickSize: 5,
-                    tickPadding: 5,
-                    tickRotation: 0,
-                    legend: 'count',
-                    legendOffset: -40,
-                    legendPosition: 'middle'
-                }}
+                margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+                startAngle={-4}
+                sortByValue={true}
+                innerRadius={0.55}
+                padAngle={4}
                 colors={{ scheme: 'pastel1' }}
-                pointSize={10}
-                pointColor={{ theme: 'background' }}
-                pointBorderWidth={2}
-                pointBorderColor={{ from: 'serieColor' }}
-                pointLabelYOffset={-12}
-                useMesh={true}
+                borderWidth={1}
+                borderColor={{ from: 'color', modifiers: [ [ 'darker', 0.2 ] ] }}
+                radialLabelsSkipAngle={10}
+                radialLabelsTextColor="#333333"
+                radialLabelsLinkColor={{ from: 'color' }}
+                sliceLabelsSkipAngle={10}
+                sliceLabelsTextColor="#333333"
                 legends={[
                     {
-                        anchor: 'bottom-right',
-                        direction: 'column',
+                        anchor: 'bottom',
+                        direction: 'row',
                         justify: false,
-                        translateX: 100,
-                        translateY: 0,
+                        translateX: 0,
+                        translateY: 56,
                         itemsSpacing: 0,
+                        itemWidth: 100,
+                        itemHeight: 18,
+                        itemTextColor: '#999',
                         itemDirection: 'left-to-right',
-                        itemWidth: 80,
-                        itemHeight: 20,
-                        itemOpacity: 0.75,
-                        symbolSize: 12,
+                        itemOpacity: 1,
+                        symbolSize: 18,
                         symbolShape: 'circle',
-                        symbolBorderColor: 'rgba(0, 0, 0, .5)',
                         effects: [
                             {
                                 on: 'hover',
                                 style: {
-                                    itemBackground: 'rgba(0, 0, 0, .03)',
-                                    itemOpacity: 1
+                                    itemTextColor: '#000'
                                 }
                             }
                         ]
