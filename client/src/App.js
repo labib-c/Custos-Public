@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 import Sidebar from "./Components/SideBarComponent/Sidebar";

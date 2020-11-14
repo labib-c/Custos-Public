@@ -84,7 +84,7 @@ export default function DataTable(props){
     }
 
     function filterArray(array) {
-      const filteredArray = array.filter(item => item.anomaly == true );
+      const filteredArray = array.filter(item => item.anomaly === true );
       return filteredArray;
     }
 

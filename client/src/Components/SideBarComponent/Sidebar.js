@@ -11,7 +11,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
 import largeIcon from '../../assets/logo-2.png';
-import smallIcon from '../../assets/logo.png';
 
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import WarningIcon from '@material-ui/icons/Warning';
@@ -71,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sidebar(props){
     const classes = useStyles();
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
   
     const handleDrawer = () => {
