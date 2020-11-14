@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { createStyles, Theme, makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -10,16 +10,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import largeIcon from '../../assets/logo-2.png';
 import smallIcon from '../../assets/logo.png';
 
 import EqualizerIcon from '@material-ui/icons/Equalizer';
-import SearchIcon from '@material-ui/icons/Search';
 import WarningIcon from '@material-ui/icons/Warning';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { getThemeProps } from '@material-ui/styles';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +80,6 @@ export default function Sidebar(props){
 
     const menuContent = [
                             {text: "Data", icon: <EqualizerIcon></EqualizerIcon>, path: "/"},
-                            {text: "Findings", icon: <SearchIcon></SearchIcon>, path: "/" },
                             {text: "Alerts", icon: <WarningIcon></WarningIcon>, path: "/"},
                             {text: "Statistics", icon: <TrendingUpIcon></TrendingUpIcon>, path: "/"},
                             {text: "Profile", icon: <AccountCircleIcon></AccountCircleIcon>, path: "/"}
