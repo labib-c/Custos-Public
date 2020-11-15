@@ -1,8 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
+import Sidebar from "./Components/SideBarComponent/Sidebar";
+import DataTable from "./Components/TableComponent/DataTable";
+import TimeSeries from "./Components/TimeSeriesComponent/TimeSeriesChart";
+import Doughnut from "./Components/DoughnutChartComponent/DoughnutChart";
 import './App.css';
+import {data} from './mockData/timeData';
+import {rows, columns} from './mockData/tableData';
+import {doughnutData} from './mockData/doughnutData';
 
 Sentry.init({
   dsn: "https://5dbbf50c14ee4124ad7a7e5124be414a@o358880.ingest.sentry.io/5450618",
@@ -18,20 +24,13 @@ Sentry.init({
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Custos Web Application
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar>
+        <div style={{display: "flex", flexDirection: "row"}}>
+          <TimeSeries data={data}></TimeSeries>
+          <Doughnut data={doughnutData}></Doughnut>
+        </div>
+        <DataTable rows={rows} columns={columns}></DataTable>
+      </Sidebar>
     </div>
   );
 }
