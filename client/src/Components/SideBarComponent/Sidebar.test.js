@@ -1,8 +1,10 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
+import ReactDOM from 'react-dom';
+import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import Sidebar from './Sidebar';
 
 it("renders", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<Sidebar></Sidebar>, div)
+    window.history.pushState({}, 'Test page', '/')
+    render(<Sidebar></Sidebar>, {wrapper: MemoryRouter})
 })
