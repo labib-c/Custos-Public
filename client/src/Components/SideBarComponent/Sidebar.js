@@ -11,16 +11,22 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
 import largeIcon from '../../assets/logo-2.png';
-
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import WarningIcon from '@material-ui/icons/Warning';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {NavLink, useLocation } from 'react-router-dom';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
+    },
+    image: {
+      flex: 1,
+      width: "100%",
+      height: "10%",
+      resizeMode: 'contain',
     },
     appBar: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -66,21 +72,30 @@ const useStyles = makeStyles((theme) => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
     },
+    link: {
+      textDecoration: 'none',
+      color: 'rgba(0, 0, 0, 0.87)'
+    },
+    active: {
+      color: "#d4af37",
+    }
   }));
 
 export default function Sidebar(props){
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
   
     const handleDrawer = () => {
         setOpen(!open);
     };
 
+    const { pathname } = useLocation();
+
     const menuContent = [
-                            {text: "Data", icon: <EqualizerIcon></EqualizerIcon>, path: "/"},
-                            {text: "Alerts", icon: <WarningIcon></WarningIcon>, path: "/"},
-                            {text: "Statistics", icon: <TrendingUpIcon></TrendingUpIcon>, path: "/"},
-                            {text: "Profile", icon: <AccountCircleIcon></AccountCircleIcon>, path: "/"}
+                            {text: "Data", icon: <EqualizerIcon></EqualizerIcon>, path: "/data"},
+                            {text: "Alerts", icon: <WarningIcon></WarningIcon>, path: "/alerts"},
+                            {text: "Statistics", icon: <TrendingUpIcon></TrendingUpIcon>, path: "/stat"},
+                            {text: "Profile", icon: <AccountCircleIcon></AccountCircleIcon>, path: "/profile"}
                         ]
 
     return(
@@ -100,9 +115,8 @@ export default function Sidebar(props){
             anchor="left"
         >
             <div className={classes.toolbar}>
-                
                 <ListItem button >
-                    <img style={ {width: '100%' }} alt="Custos" src={  largeIcon } ></img> 
+                    <NavLink to="/data"><img className={classes.image} alt="Custos" src={  largeIcon } ></img></NavLink> 
                 </ListItem>
                 <IconButton onClick={handleDrawer}>
                 { !open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -111,10 +125,13 @@ export default function Sidebar(props){
             <Divider />
             <List>
             { menuContent.map(each => (
-                <ListItem button key={each.text}>
-                <ListItemIcon> {each.icon} </ListItemIcon>
-                <ListItemText primary={each.text} />
-                </ListItem>
+                <NavLink className={classes.link} to={each.path} activeClassName={classes.active}>
+                  <ListItem button key={each.text}>
+                    <ListItemIcon className={pathname === each.path ? classes.active: ""}> {each.icon} </ListItemIcon>
+                    <ListItemText primary={each.text} />
+                  </ListItem>
+                </NavLink>
+
             ))}
             </List>
         </Drawer>

@@ -28,8 +28,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact component={Home}></Route>
-        <Route path="/dash" exact component={Dashboard}></Route>
-        <Route path="/data" exact component={Home}></Route>
+        <Route path="/data" exact component={Dashboard}></Route>
         <Route path="/alerts" exact component={Home}></Route>
         <Route path="/stat" exact component={Home}></Route>
         <Route path="/profile" exact component={Home}></Route>
