@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
+import { render } from '@testing-library/react'
 import DataTable from './DataTable';
+import { MemoryRouter } from 'react-router-dom'
 import {rows, columns} from './../../mockData/tableData'
 
 it("renders", () => {
     const div = document.createElement("div");
-    ReactDOM.render(<DataTable rows={rows} columns={columns}></DataTable>, div)
+    render(<DataTable rows={rows} columns={columns}></DataTable>, {wrapper: MemoryRouter})
 })

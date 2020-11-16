@@ -127,7 +127,7 @@ export default function Sidebar(props){
             { menuContent.map(each => (
                 <NavLink className={classes.link} to={each.path} activeClassName={classes.active}>
                   <ListItem button key={each.text}>
-                    <ListItemIcon className={pathname === each.path ? classes.active: ""}> {each.icon} </ListItemIcon>
+                    <ListItemIcon className={pathname.includes(each.path) ? classes.active: ""}> {each.icon} </ListItemIcon>
                     <ListItemText primary={each.text} />
                   </ListItem>
                 </NavLink>

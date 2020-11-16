@@ -4,7 +4,9 @@ import { Integrations } from "@sentry/tracing";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  withRouter, 
+  useLocation
 } from "react-router-dom";
 import './App.css';
 import Dashboard from "./Pages/Dashboard";
@@ -31,6 +33,7 @@ function App() {
         <Route path="/alerts" exact component={Home}></Route>
         <Route path="/stat" exact component={Home}></Route>
         <Route path="/profile" exact component={Home}></Route>
+        <Route path="/alerts/:eventId" component={withRouter(Event)}></Route>
       </Switch>
     </Router>
   );
@@ -39,6 +42,15 @@ function App() {
 function Home() {
   return(
     <Sidebar></Sidebar>
+  )
+}
+
+function Event(props) {
+  const location = useLocation();
+  return(
+    <Sidebar>
+      {location.pathname}
+    </Sidebar>
   )
 }
 export default App;
