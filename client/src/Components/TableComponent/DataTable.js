@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import WarningIcon from '@material-ui/icons/Warning';
+import { NavLink } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -49,7 +50,7 @@ export default function DataTable(props){
     const [order, setOrder] = React.useState('');
     const [orderBy, setOrderBy] = React.useState('');
     const [filter, setFilter] = React.useState(false);
-
+    const [rows, setRows] = React.useState(props.rows);
 
     const handleRequestSort = (event, property) => {
       const isAsc = orderBy === property && order === 'asc';
@@ -90,6 +91,7 @@ export default function DataTable(props){
 
     const toggleFilter = () => {
       setFilter(!filter);
+      !filter ? setRows(filterArray(props.rows)) : setRows(props.rows)
     }
     
     const handleChangePage = (event, newPage) => {
@@ -100,11 +102,6 @@ export default function DataTable(props){
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
-
-    const handleRowClick = (event, id) => {
-      // this is where we would navigate to single anomaly page
-      console.log(id)
-    }
 
     return (
         <Paper className={classes.root} variant="outlined">
@@ -137,7 +134,7 @@ export default function DataTable(props){
                 </TableRow>
               </TableHead>
               <TableBody>
-                {stableSort(filter ? filterArray(props.rows) : props.rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                {stableSort(rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                   return (
                     <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                       {props.columns.map((column) => {
@@ -148,7 +145,7 @@ export default function DataTable(props){
                           </TableCell>
                         );
                       })}
-                    {row.anomaly ? <IconButton onClick={e => {handleRowClick(e, row.name)}}><WarningIcon className={classes.anomaly}></WarningIcon></IconButton> : ''}
+                    {row.anomaly ? <NavLink to={"/alerts/"+row.name}><IconButton><WarningIcon className={classes.anomaly}></WarningIcon></IconButton></NavLink> : ''}
                     </TableRow>
                   );
                 })}
@@ -158,7 +155,7 @@ export default function DataTable(props){
           <TablePagination
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
-            count={props.rows.length}
+            count={rows.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onChangePage={handleChangePage}
