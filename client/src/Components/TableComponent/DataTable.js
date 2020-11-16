@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -51,12 +51,6 @@ export default function DataTable(props){
     const [filter, setFilter] = React.useState(false);
     const [rows, setRows] = React.useState(props.rows);
 
-    let filteredRows = [];
-
-    useEffect(() => {
-      filteredRows = filterArray(props.rows);
-    })
-
     const handleRequestSort = (event, property) => {
       const isAsc = orderBy === property && order === 'asc';
       setOrder(isAsc ? 'desc' : 'asc');
@@ -96,7 +90,7 @@ export default function DataTable(props){
 
     const toggleFilter = () => {
       setFilter(!filter);
-      !filter ? setRows(filteredRows) : setRows(props.rows)
+      !filter ? setRows(filterArray(props.rows)) : setRows(props.rows)
     }
     
     const handleChangePage = (event, newPage) => {
