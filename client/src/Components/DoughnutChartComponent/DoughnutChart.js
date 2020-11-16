@@ -50,7 +50,7 @@ export default function Doughnut(props) {
             <div style={{height: "80%", width: "100%"}}>
             <ResponsivePie
                 data={selectData(props.data)}
-                margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+                margin={{ top: 40, right: 80, bottom: 80, left: 100 }}
                 startAngle={-4}
                 sortByValue={true}
                 innerRadius={0.55}

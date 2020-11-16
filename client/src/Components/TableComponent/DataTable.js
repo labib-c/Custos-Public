@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -49,7 +49,13 @@ export default function DataTable(props){
     const [order, setOrder] = React.useState('');
     const [orderBy, setOrderBy] = React.useState('');
     const [filter, setFilter] = React.useState(false);
+    const [rows, setRows] = React.useState(props.rows);
 
+    let filteredRows = [];
+
+    useEffect(() => {
+      filteredRows = filterArray(props.rows);
+    })
 
     const handleRequestSort = (event, property) => {
       const isAsc = orderBy === property && order === 'asc';
@@ -90,6 +96,7 @@ export default function DataTable(props){
 
     const toggleFilter = () => {
       setFilter(!filter);
+      !filter ? setRows(filteredRows) : setRows(props.rows)
     }
     
     const handleChangePage = (event, newPage) => {
@@ -137,7 +144,7 @@ export default function DataTable(props){
                 </TableRow>
               </TableHead>
               <TableBody>
-                {stableSort(filter ? filterArray(props.rows) : props.rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                {stableSort(rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                   return (
                     <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                       {props.columns.map((column) => {
@@ -158,7 +165,7 @@ export default function DataTable(props){
           <TablePagination
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
-            count={props.rows.length}
+            count={rows.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onChangePage={handleChangePage}
