@@ -1,8 +1,15 @@
 import React from 'react';
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
 import Dashboard from "./Pages/Dashboard";
+import Sidebar from './Components/SideBarComponent/Sidebar';
 
 
 Sentry.init({
@@ -18,10 +25,22 @@ Sentry.init({
 
 function App() {
   return (
-    <div className="App">
-      <Dashboard></Dashboard>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/dash" exact component={Dashboard}></Route>
+        <Route path="/data" exact component={Home}></Route>
+        <Route path="/alerts" exact component={Home}></Route>
+        <Route path="/stat" exact component={Home}></Route>
+        <Route path="/profile" exact component={Home}></Route>
+      </Switch>
+    </Router>
   );
 }
 
+function Home() {
+  return(
+    <Sidebar></Sidebar>
+  )
+}
 export default App;
