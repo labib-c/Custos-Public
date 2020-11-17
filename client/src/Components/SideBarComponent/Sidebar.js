@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
     },
     image: {
-      flex: 1,
       width: "100%",
-      height: "10%",
+      height: "100%",
+      marginTop: "40px",
       resizeMode: 'contain',
     },
     appBar: {
@@ -67,8 +67,7 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     toolbar:{
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        height: '10%',
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
     },
