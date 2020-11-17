@@ -13,6 +13,7 @@ import Dashboard from "./Pages/Dashboard";
 import Sidebar from './Components/SideBarComponent/Sidebar';
 import SignupPage from './Pages/SignupPage';
 import LoginPage from './Pages/LoginPage';
+import ProfilePage from './Pages/ProfilePage'
 import { AuthProvider } from './Context/AuthContext'
 import PrivateRoute from './Components/PrivateRouteComponent/PrivateRoute'
 
@@ -38,7 +39,7 @@ function App() {
           <PrivateRoute path="/data" exact component={Dashboard}></PrivateRoute>
           <PrivateRoute path="/alerts" exact component={Home}></PrivateRoute>
           <PrivateRoute path="/stat" exact component={Home}></PrivateRoute>
-          <PrivateRoute path="/profile" exact component={Home}></PrivateRoute>
+          <PrivateRoute path="/profile" exact component={ProfilePage}></PrivateRoute>
           <PrivateRoute path="/alerts/:eventId" component={withRouter(Event)}></PrivateRoute>
         </Switch>
       </AuthProvider>
