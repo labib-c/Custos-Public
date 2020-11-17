@@ -11,7 +11,10 @@ import {
 import './App.css';
 import Dashboard from "./Pages/Dashboard";
 import Sidebar from './Components/SideBarComponent/Sidebar';
-
+import SignupPage from './Pages/SignupPage';
+import LoginPage from './Pages/LoginPage';
+import { AuthProvider } from './Context/AuthContext'
+import PrivateRoute from './Components/PrivateRouteComponent/PrivateRoute'
 
 Sentry.init({
   dsn: "https://5dbbf50c14ee4124ad7a7e5124be414a@o358880.ingest.sentry.io/5450618",
@@ -27,14 +30,18 @@ Sentry.init({
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/data" exact component={Dashboard}></Route>
-        <Route path="/alerts" exact component={Home}></Route>
-        <Route path="/stat" exact component={Home}></Route>
-        <Route path="/profile" exact component={Home}></Route>
-        <Route path="/alerts/:eventId" component={withRouter(Event)}></Route>
-      </Switch>
+      <AuthProvider>
+        <Switch>
+          <PrivateRoute path="/" exact component={Home}></PrivateRoute>
+          <Route path="/signup" exact component={SignupPage}></Route>
+          <Route path="/login" exact component={LoginPage}></Route>
+          <PrivateRoute path="/data" exact component={Dashboard}></PrivateRoute>
+          <PrivateRoute path="/alerts" exact component={Home}></PrivateRoute>
+          <PrivateRoute path="/stat" exact component={Home}></PrivateRoute>
+          <PrivateRoute path="/profile" exact component={Home}></PrivateRoute>
+          <PrivateRoute path="/alerts/:eventId" component={withRouter(Event)}></PrivateRoute>
+        </Switch>
+      </AuthProvider>
     </Router>
   );
 }
