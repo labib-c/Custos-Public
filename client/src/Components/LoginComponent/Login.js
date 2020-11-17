@@ -72,7 +72,7 @@ export default function Login() {
       }, [])// eslint-disable-line react-hooks/exhaustive-deps
     return (
 
-        <Paper className={classes.padding } variant="outlined">
+        <Paper className={classes.padding } variant="elevated">
             {error && <Alert severity="error">{error}</Alert>}
             <h1 style={{textAlign: "center", color: "black"}}>Log In</h1>
             <div className={classes.margin}>

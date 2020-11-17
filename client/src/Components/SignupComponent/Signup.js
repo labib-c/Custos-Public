@@ -78,7 +78,7 @@ export default function Signup() {
 
     return (
 
-        <Paper className={classes.padding} variant="outlined">
+        <Paper className={classes.padding} variant="elevated">
             {error && <Alert severity="error">{error}</Alert>}
             <h1 style={{textAlign: "center", color: "black"}}>Sign Up</h1>
             <div className={classes.margin}>
