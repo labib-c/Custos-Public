@@ -12,25 +12,25 @@ const useStyles = makeStyles(theme => ({
         width: "90%",
         height: "60%",
         padding: "10px",
-        borderColor: "#666666 !important",
+        borderColor: "#black !important",
         backgroundColor: "#00000000",
         opacity: 0.7
     },
     link: {
         textDecoration: 'none',
-        color: "#666666"
+        color: "black"
     },
 
     label: {
-        color: "#666666 !important"
+        color: "black !important"
     },
     outline: {
         borderWidth: '1px',
-        borderColor: '#666666 !important'
+        borderColor: 'black !important'
     },
     button: {
-        color: "#666666 !important",
-        borderColor: "#666666 !important"
+        color: "black !important",
+        borderColor: "#black !important"
     }
 }));
 
@@ -74,7 +74,7 @@ export default function Login() {
 
         <Paper className={classes.padding } variant="outlined">
             {error && <Alert severity="error">{error}</Alert>}
-            <h1 style={{textAlign: "center", color: "#666666"}}>Log In</h1>
+            <h1 style={{textAlign: "center", color: "black"}}>Log In</h1>
             <div className={classes.margin}>
                 <Grid container spacing={8} alignItems="flex-end">
                     <Grid item md={true} sm={true} xs={true}>

@@ -8,7 +8,7 @@ export default function Logo() {
             <Box style={{ height: "40%", width: "10%"}}><img style={{height: "650px", width: "650px"}} alt="Custos" src={ largeIcon }></img></Box>
             <Typography gutterBottom variant="h3">
                 <Box style={{paddingLeft: "6%", width: "100%"}} fontWeight="fontWeightBold">
-                Threat Intelligence That <div style={{color: "#d4af37"}}> Makes Sense.</div>
+                Cybersecurity That <div style={{color: "#d4af37"}}> Makes Sense.</div>
                 </Box>
                 
             </Typography>
