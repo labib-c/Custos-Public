@@ -33,7 +33,7 @@ function App() {
     <Router>
       <AuthProvider>
         <Switch>
-          <PrivateRoute path="/" exact component={Home}></PrivateRoute>
+          <PrivateRoute path="/" exact component={Dashboard}></PrivateRoute>
           <Route path="/signup" exact component={SignupPage}></Route>
           <Route path="/login" exact component={LoginPage}></Route>
           <PrivateRoute path="/data" exact component={Dashboard}></PrivateRoute>

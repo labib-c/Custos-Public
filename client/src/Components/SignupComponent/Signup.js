@@ -1,5 +1,5 @@
-import React from 'react'
-import { Paper, makeStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
+import React, {useEffect} from 'react'
+import { Paper, makeStyles, Grid, TextField, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { useAuth } from "../../Context/AuthContext";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -9,13 +9,29 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing.unit * 2,
     },
     padding: {
-        width: "50%",
-        height: "50%",
-        padding: theme.spacing.unit
+        width: "90%",
+        height: "75%",
+        padding: "10px",
+        borderColor: "#666666 !important",
+        backgroundColor: "#00000000",
+        opacity: 0.7
     },
     link: {
-        textDecoration: 'none'
-      }
+        textDecoration: 'none',
+        color: "#666666"
+    },
+
+    label: {
+        color: "#666666 !important"
+    },
+    outline: {
+        borderWidth: '1px',
+        borderColor: '#666666 !important'
+    },
+    button: {
+        color: "#666666 !important",
+        borderColor: "#666666 !important"
+    }
 }));
 
 export default function Signup() {
@@ -46,26 +62,99 @@ export default function Signup() {
         setLoading(false)
 
     }
+
+    useEffect(() => {
+        const listener = event => {
+          if (event.code === "Enter" || event.code === "NumpadEnter") {
+            handleSubmit(event)
+            // callMyFunction();
+          }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+          document.removeEventListener("keydown", listener);
+        };
+      }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
     return (
 
         <Paper className={classes.padding} variant="outlined">
             {error && <Alert severity="error">{error}</Alert>}
+            <h1 style={{textAlign: "center", color: "#666666"}}>Sign Up</h1>
             <div className={classes.margin}>
                 <Grid container spacing={8} alignItems="flex-end">
                     <Grid item md={true} sm={true} xs={true}>
-                        <TextField id="username" inputRef={emailRef} label="Email" type="email" fullWidth autoFocus required />
+                        <TextField 
+                        variant="outlined" 
+                        id="username" 
+                        inputRef={emailRef} 
+                        label="Email" 
+                        type="email" 
+                        InputLabelProps={{
+                            classes: {
+                                root: classes.label,
+                                focused: classes.label,
+                            }
+                        }}
+                        InputProps={{
+                            classes: {
+                              root: classes.label,
+                              focused: classes.label,
+                              notchedOutline: classes.outline,
+                            }}}
+                        fullWidth 
+                        autoFocus 
+                        required />
                     </Grid>
                 </Grid>
 
                 <Grid container spacing={8} alignItems="flex-end">
                     <Grid item md={true} sm={true} xs={true}>
-                        <TextField id="password" inputRef={passRef} label="Password" type="password" fullWidth required />
+                        <TextField 
+                        variant="outlined" 
+                        id="password" 
+                        inputRef={passRef} 
+                        label="Password" 
+                        type="password" 
+                        InputLabelProps={{
+                            classes: {
+                                root: classes.label,
+                                focused: classes.label,
+                            }
+                        }}
+                        InputProps={{
+                            classes: {
+                              root: classes.label,
+                              focused: classes.label,
+                              notchedOutline: classes.outline,
+                            }}}
+                        fullWidth 
+                        required />
                     </Grid>
                 </Grid>
 
                 <Grid container spacing={8} alignItems="flex-end">
                     <Grid item md={true} sm={true} xs={true}>
-                        <TextField id="passwordConfirm" inputRef={passConfRef} label="Password Confirmation" type="password" fullWidth required />
+                        <TextField 
+                        variant="outlined" 
+                        id="passwordConfirm" 
+                        inputRef={passConfRef} 
+                        label="Password Confirmation" 
+                        type="password"
+                        InputLabelProps={{
+                            classes: {
+                                root: classes.label,
+                                focused: classes.label,
+                            }
+                        }}
+                        InputProps={{
+                            classes: {
+                              root: classes.label,
+                              focused: classes.label,
+                              notchedOutline: classes.outline,
+                            }}} 
+                        fullWidth 
+                        required />
                     </Grid>
                 </Grid>
 
@@ -78,7 +167,7 @@ export default function Signup() {
                 </Grid>
                 
                 <Grid container justify="center" style={{ marginTop: '10px' }}>
-                    <Button disabled={loading} variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={handleSubmit}>Sign Up</Button>
+                    <Button className={classes.button} disabled={loading} variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={handleSubmit}>Sign Up</Button>
                 </Grid>
 
             </div>
