@@ -9,5 +9,5 @@ scikit-learn==0.22.1
 joblib==0.14.1
 tensorflow
 tensorflow-gpu
-cudatoolkit==10.1.243
+cudatoolkit
 keras==2.3.1
