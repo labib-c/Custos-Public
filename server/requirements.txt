@@ -3,3 +3,9 @@ pytest==6.1.1
 pyrebase
 sentry-sdk[flask]
 rsa==4.0
+numpy==1.18.1
+pandas==1.0.1
+scikit-learn==0.22.1
+joblib==0.14.1
+tensorflow
+keras==2.3.1
