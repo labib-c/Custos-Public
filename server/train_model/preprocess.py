@@ -12,14 +12,12 @@ CHAR_INDEX += '123456789'
 CHAR_INDEX += '().,-/+=&$?@#!*:;_[|%⸏{}\"\'' + ' ' +'\\'
 CHAR_TO_INT = dict((c, i) for i, c in enumerate(CHAR_INDEX))
 
-def encode_sequence_list(seqs, feat_n=0):
+def encode_sequence_list(seqs):
     encoded_seqs = []
     counter = 0
     for seq in seqs:
         encoded_seq = [CHAR_TO_INT[c] for c in seq]
         encoded_seqs.append(encoded_seq)
-    if(feat_n > 0):
-        encoded_seqs.append(np.zeros(feat_n))
     return pad_sequences(encoded_seqs, padding='post')
 
 def preprocess_str_col(df, col_name):
