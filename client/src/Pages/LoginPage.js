@@ -1,16 +1,36 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
 import Login from '../Components/LoginComponent/Login'
 import Logo from '../Components/LogoComponent/Logo'
 import FadeIn from 'react-fade-in';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: "flex", 
+        flexDirection: "row", 
+        backgroundImage: "url(https://coolbackgrounds.io/images/backgrounds/white/white-contour-c990a61f.svg)", 
+        backgroundSize: "cover"
+    },
+    logo: {
+        display: "flex"
+    },
+    login: {
+        paddingTop: "12%", 
+        paddingLeft: "15%", 
+        marginRight: "50px", 
+        width: "100%"
+    }
+}))
+
 export default function SignupPage() {
+    const classes = useStyles()
     return (
-        <div style={{display: "flex", flexDirection: "row"}} >
+        <div className={classes.root} >
             <FadeIn transitionDuration={1000}>
-                <div style={{display: "flex"}}><Logo></Logo></div>
+                <div className={classes.logo}><Logo></Logo></div>
             </FadeIn>
             
-            <div style={{paddingTop: "12%", paddingLeft: "15%", marginRight: "50px", width: "100%"}} ><Login></Login></div>
+            <div className={classes.login} ><Login></Login></div>
         </div>
     )
 }
