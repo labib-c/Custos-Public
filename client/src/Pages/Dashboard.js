@@ -13,7 +13,7 @@ export default function Dashboard(props) {
                 <TimeSeries data={data}></TimeSeries>
                 <Doughnut data={doughnutData}></Doughnut>
             </div>
-            <DataTable rows={rows} columns={columns}></DataTable>
+            <DataTable rows={rows} columns={columns} header={"Data"}></DataTable>
         </Sidebar>
       );
 }

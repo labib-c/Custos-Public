@@ -76,7 +76,11 @@ const useStyles = makeStyles((theme) => ({
       color: 'rgba(0, 0, 0, 0.87)'
     },
     active: {
-      color: "#d4af37",
+      color: "white",
+      backgroundColor: "#d4af37",
+    },
+    activeIcon: {
+      color: "white"
     }
   }));
 
@@ -115,7 +119,7 @@ export default function Sidebar(props){
         >
             <div className={classes.toolbar}>
                 <ListItem button >
-                    <NavLink to="/data"><img className={classes.image} alt="Custos" src={  largeIcon } ></img></NavLink> 
+                    <NavLink to="/"><img className={classes.image} alt="Custos" src={  largeIcon } ></img></NavLink> 
                 </ListItem>
                 <IconButton onClick={handleDrawer}>
                 { !open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -124,9 +128,9 @@ export default function Sidebar(props){
             <Divider />
             <List>
             { menuContent.map(each => (
-                <NavLink className={classes.link} to={each.path} activeClassName={classes.active}>
-                  <ListItem button key={each.text}>
-                    <ListItemIcon className={pathname.includes(each.path) ? classes.active: ""}> {each.icon} </ListItemIcon>
+                <NavLink className={classes.link} to={each.path}>
+                  <ListItem className={pathname.includes(each.path) ? classes.active : ""} button key={each.text}>
+                    <ListItemIcon className={pathname.includes(each.path) ? classes.activeIcon : ""}> {each.icon} </ListItemIcon>
                     <ListItemText primary={each.text} />
                   </ListItem>
                 </NavLink>

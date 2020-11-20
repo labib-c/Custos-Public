@@ -106,12 +106,13 @@ export default function DataTable(props){
     return (
         <Paper className={classes.root} variant="outlined">
           <h2 style={{textAlign: 'left'}}>
-          Findings
-          <Tooltip title={!filter ? "Only Anomalies" : "All Findings"}>
+          {props.header}
+          {!props.removeFilter && <Tooltip title={!filter ? "Only Anomalies" : "All Findings"}>
             <IconButton aria-label="only anomalies" onClick={e => {toggleFilter()}}>
               <FilterListIcon />
             </IconButton>
           </Tooltip>
+          }
           </h2>
           <TableContainer className={classes.container}>
             <Table stickyHeader aria-label="sticky table">
