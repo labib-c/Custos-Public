@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex", 
         flexDirection: "row", 
+        height: "100vh",
         backgroundImage: "url(https://coolbackgrounds.io/images/backgrounds/white/white-contour-c990a61f.svg)", 
         backgroundSize: "cover"
     },
