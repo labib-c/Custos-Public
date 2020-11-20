@@ -5,17 +5,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  withRouter, 
-  useLocation
+  withRouter
 } from "react-router-dom";
 import './App.css';
 import Dashboard from "./Pages/Dashboard";
-import Sidebar from './Components/SideBarComponent/Sidebar';
 import SignupPage from './Pages/SignupPage';
 import LoginPage from './Pages/LoginPage';
 import ProfilePage from './Pages/ProfilePage';
 import DataPage from './Pages/DataPage';
 import AlertsPage from './Pages/AlertsPage';
+import StatsPage from './Pages/StatsPage';
 import { AuthProvider } from './Context/AuthContext';
 import PrivateRoute from './Components/PrivateRouteComponent/PrivateRoute';
 
@@ -40,7 +39,7 @@ function App() {
           <Route path="/login" exact component={LoginPage}></Route>
           <PrivateRoute path="/data" exact component={DataPage}></PrivateRoute>
           <PrivateRoute path="/alerts" exact component={AlertsPage}></PrivateRoute>
-          <PrivateRoute path="/stat" exact component={Home}></PrivateRoute>
+          <PrivateRoute path="/stat" exact component={StatsPage}></PrivateRoute>
           <PrivateRoute path="/profile" exact component={ProfilePage}></PrivateRoute>
           <PrivateRoute path="/alerts/:eventId" component={withRouter(Event)}></PrivateRoute>
         </Switch>
@@ -49,18 +48,4 @@ function App() {
   );
 }
 
-function Home() {
-  return(
-    <Sidebar></Sidebar>
-  )
-}
-
-function Event(props) {
-  const location = useLocation();
-  return(
-    <Sidebar>
-      {location.pathname}
-    </Sidebar>
-  )
-}
 export default App;
