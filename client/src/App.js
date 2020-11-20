@@ -5,9 +5,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  withRouter
+  withRouter,
+  useLocation,
 } from "react-router-dom";
 import './App.css';
+import Sidebar from "./Components/SideBarComponent/Sidebar";
 import Dashboard from "./Pages/Dashboard";
 import SignupPage from './Pages/SignupPage';
 import LoginPage from './Pages/LoginPage';
@@ -46,6 +48,15 @@ function App() {
       </AuthProvider>
     </Router>
   );
+}
+
+function Event(props) {
+  const location = useLocation();
+  return(
+    <Sidebar>
+      {location.pathname}
+    </Sidebar>
+  )
 }
 
 export default App;
