@@ -1,5 +1,7 @@
 import pandas as pd
 import time
+
+COLUMNS_TO_REMOVE = ["time", "destination computer"] #Add more columns to reduce the size of the training set.
 curr_time = time.time()
 REDTEAM_HEADERS = ["time","source user@domain","source computer","destination computer"]
 AUTH_HEADERS = ["time","source user@domain","destination user@domain","source computer","destination computer","authentication type","logon type","authentication orientation","success/failure"]
@@ -18,7 +20,7 @@ for chunk in pd.read_csv('auth.txt.gz', chunksize=chunksize, names=AUTH_HEADERS)
     dest_computer_match = chunk["destination computer"].isin(redteam["destination computer"])
     
     in_red = pd.DataFrame({"time":time_match, "source user@domain": source_domain_match, "source computer": source_computer_match, "destination computer": dest_computer_match})
-    in_others = in_red.drop(columns=["time", "source computer", "destination computer"]).any(axis=1)
+    in_others = in_red.drop(columns=COLUMNS_TO_REMOVE).any(axis=1)
     total_similar += in_others.values.sum()
     data = chunk[in_others]
     in_red = in_red.all(axis=1)
