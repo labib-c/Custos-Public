@@ -16,9 +16,11 @@ jobs:
       with:
         python-version: 3.7
     - name: Generate Coverage Report
+      working-directory: ./server
       run: |
         pip install pytest
         pip install pytest-cov
+        pip install sentry-sdk[flask]
         pytest --cov=./ --cov-report=xml
     - name: Upload to CodeCov
       uses: codecov/codecov-action@v1
