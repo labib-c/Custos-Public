@@ -26,4 +26,3 @@ jobs:
         - name: Test Using Jest
           working-directory: ./client
           run: npm test
-        - name: Generate Coverage Report
