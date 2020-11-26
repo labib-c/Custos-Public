@@ -1,7 +1,6 @@
 {
   "name": "client",
   "jest": {
-    "collectCoverage": true,
     "coverageReporters": ["lcov"]
   },
   "version": "0.1.0",
