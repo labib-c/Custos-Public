@@ -42,7 +42,7 @@ jobs:
           working-directory: ./server
           run: |
             pytest --cov=./ --cov-report=xml
-            ./../cc-test-reporter format-coverage -t CoveragePy
+            ./../cc-test-reporter format-coverage -t coverage.py
             ls
         - name: Generate Client Coverage
           working-directory: ./client
