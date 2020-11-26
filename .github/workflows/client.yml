@@ -38,8 +38,11 @@ jobs:
         #     name: codecov-umbrella
         #     fail_ci_if_error: true
         #     verbose: true
-          uses: paambaati/codeclimate-action@v2.2.4
           env:
             CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
-          with:
-            coverageCommand: npm test -- --coverage
+          run: |
+            export GIT_BRANCH="${GITHUB_REF##*/}"
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter format-coverage -t simplecov
+            ./cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
