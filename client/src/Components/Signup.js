@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Paper, makeStyles, Grid, TextField, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../Context/AuthContext";
 import { NavLink, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({

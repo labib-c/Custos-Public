@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Login from '../Components/LoginComponent/Login'
-import Logo from '../Components/LogoComponent/Logo'
+import Login from '../Components/Login'
+import Logo from '../Components/Logo'
 import FadeIn from 'react-fade-in';
 
 const useStyles = makeStyles((theme) => ({

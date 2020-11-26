@@ -1,5 +1,5 @@
 import React from 'react'
-import {useAuth} from '../../Context/AuthContext'
+import {useAuth} from '../Context/AuthContext'
 import {Button} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import Avatar from '@material-ui/core/Avatar';

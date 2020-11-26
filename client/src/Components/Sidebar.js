@@ -10,7 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
-import largeIcon from '../../assets/logo-2.png';
+import largeIcon from '../assets/logo-2.png';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import WarningIcon from '@material-ui/icons/Warning';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';

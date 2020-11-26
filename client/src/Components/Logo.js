@@ -1,5 +1,5 @@
 import React from 'react'
-import largeIcon from '../../assets/logo-2.png';
+import largeIcon from '../assets/logo-2.png';
 import { Typography, Box } from '@material-ui/core';
 
 export default function Logo() {
