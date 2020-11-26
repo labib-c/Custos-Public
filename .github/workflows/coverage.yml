@@ -44,17 +44,18 @@ jobs:
           run: |
             pytest --cov=./ --cov-report=xml
             ./../cc-test-reporter format-coverage -t coverage.py -o codeclimate.server.json
-            ls
+            mv codeclimate.server.json ../tmp
         - name: Generate Client Coverage
           working-directory: ./client
           run: |
             npm test -- --coverage --watchAll=false
             ./../cc-test-reporter format-coverage -t lcov -o codeclimate.backend.json
-            ls
+            mv codeclimate.client.json ../tmp
         - name: Upload to Code Climate
           env:
             CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
           run: |
+            # ls
             ls tmp
-            ./cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 tmp/codeclimate.total.json
+            ./cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
             ./cc-test-reporter upload-coverage -i tmp/codeclimate.total.json --id $CC_TEST_REPORTER_ID
