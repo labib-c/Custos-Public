@@ -35,26 +35,24 @@ jobs:
           run: npm ci
         - name: Install Code Climate
           run: |
-            mkdir -p tmp/
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp
-            ls tmp
-            chmod +x ./tmp/cc-test-reporter
-            ./../tmp/cc-test-reporter before-build
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
         - name: Generate Server Coverage
           working-directory: ./server
           run: |
             pytest --cov=./ --cov-report=xml
-            ./tmp/cc-test-reporter format-coverage -t CoveragePy
+            ./cc-test-reporter format-coverage -t CoveragePy
             ls
         - name: Generate Client Coverage
           working-directory: ./client
           run: |
             npm test -- --coverage --watchAll=false
-            ./../tmp/cc-test-reporter format-coverage -t lcov
+            ./cc-test-reporter format-coverage -t lcov
             ls
         - name: Upload to Code Climate
           env:
             CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
           run: |
-            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
-            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json --id $CC_TEST_REPORTER_ID
+            ./cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+            ./cc-test-reporter upload-coverage -i tmp/codeclimate.total.json --id $CC_TEST_REPORTER_ID
