@@ -9,7 +9,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import './App.css';
-import Sidebar from "./Components/SideBarComponent/Sidebar";
+import Sidebar from "./Components/Sidebar";
 import Dashboard from "./Pages/Dashboard";
 import SignupPage from './Pages/SignupPage';
 import LoginPage from './Pages/LoginPage';
@@ -18,7 +18,7 @@ import DataPage from './Pages/DataPage';
 import AlertsPage from './Pages/AlertsPage';
 import StatsPage from './Pages/StatsPage';
 import { AuthProvider } from './Context/AuthContext';
-import PrivateRoute from './Components/PrivateRouteComponent/PrivateRoute';
+import PrivateRoute from './Components/PrivateRoute';
 
 Sentry.init({
   dsn: "https://5dbbf50c14ee4124ad7a7e5124be414a@o358880.ingest.sentry.io/5450618",

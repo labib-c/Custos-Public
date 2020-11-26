@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from "./../Components/SideBarComponent/Sidebar";
-import DataTable from "./../Components/TableComponent/DataTable"; //only for mock data we import filterArray
+import Sidebar from "./../Components/Sidebar";
+import DataTable from "./../Components/DataTable"; //only for mock data we import filterArray
 import {rows, columns} from './../mockData/tableData';
 
 export default function AlertsPage() {

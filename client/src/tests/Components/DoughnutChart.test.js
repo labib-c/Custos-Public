@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
-import Doughnut from './DoughnutChart'
-import {doughnutData} from './../../mockData/doughnutData'
+import Doughnut from '../../Components/DoughnutChart'
+import {doughnutData} from '../../mockData/doughnutData'
 
 it("renders", () => {
     const div = document.createElement("div");

@@ -1,7 +1,7 @@
 import React from 'react'
-import Sidebar from "./../Components/SideBarComponent/Sidebar";
-import TimeSeries from "./../Components/TimeSeriesComponent/TimeSeriesChart";
-import Doughnut from "./../Components/DoughnutChartComponent/DoughnutChart";
+import Sidebar from "./../Components/Sidebar";
+import TimeSeries from "./../Components/TimeSeriesChart";
+import Doughnut from "./../Components/DoughnutChart";
 import {data} from './../mockData/timeData';
 import {doughnutData} from './../mockData/doughnutData';
 import { makeStyles } from '@material-ui/core/styles';

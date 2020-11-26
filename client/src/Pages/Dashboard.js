@@ -1,7 +1,7 @@
-import Sidebar from "./../Components/SideBarComponent/Sidebar";
-import DataTable from "./../Components/TableComponent/DataTable";
-import TimeSeries from "./../Components/TimeSeriesComponent/TimeSeriesChart";
-import Doughnut from "./../Components/DoughnutChartComponent/DoughnutChart";
+import Sidebar from "./../Components/Sidebar";
+import DataTable from "./../Components/DataTable";
+import TimeSeries from "./../Components/TimeSeriesChart";
+import Doughnut from "./../Components/DoughnutChart";
 import {data} from './../mockData/timeData';
 import {rows, columns} from './../mockData/tableData';
 import {doughnutData} from './../mockData/doughnutData';
