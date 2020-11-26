@@ -2,7 +2,7 @@
 ![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg)
 ![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg)
 ![Deploy to Heroku](https://github.com/dcsil/Custos/workflows/Deploy%20to%20Heroku/badge.svg)
-[![codecov](https://codecov.io/gh/dcsil/Custos/branch/master/graph/badge.svg?token=D2E7LSBKN2)](https://codecov.io/gh/dcsil/Custos)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7168a13ecb7ac8f3c498/test_coverage)](https://codeclimate.com/repos/5f6d4b5bb5607a511c00428c/test_coverage)
 
 ![Team Logo](./logo.png)
 
