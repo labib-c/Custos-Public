@@ -23,6 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install pytest-cov
     - name: Lint with flake8
       working-directory: ./server
       run: |
@@ -34,16 +35,17 @@ jobs:
       working-directory: ./server
       run: |
         pytest
-    - name: Generate Coverage Report
-      working-directory: ./server
-      run: |
-        pip install pytest-cov
-        pytest --cov=./ --cov-report=xml
     - name: Upload to CodeCov
-      uses: codecov/codecov-action@v1
+    #   uses: codecov/codecov-action@v1
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
+    #     file: ./server/coverage.xml
+    #     name: codecov-umbrella
+    #     fail_ci_if_error: true
+    #     verbose: true
+      uses: paambaati/codeclimate-action@v2.7.4
+      env:
+        CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./server/coverage.xml
-        name: codecov-umbrella
-        fail_ci_if_error: true
-        verbose: true
+        workingDirectory: server
+        coverageCommand: pytest --cov=./ --cov-report=xml
