@@ -55,7 +55,5 @@ jobs:
           env:
             CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
           run: |
-            # ls
-            ls tmp
             ./cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
             ./cc-test-reporter upload-coverage -i tmp/codeclimate.total.json --id $CC_TEST_REPORTER_ID

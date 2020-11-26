@@ -1,10 +1,8 @@
 name: Client Continuous Integration
 
 on:
-    # pull_request:
-    #   branches: [ master ]
-    push:
-      branches: [master]
+    pull_request:
+      branches: [ master ]
   
 jobs:
     build:
@@ -27,20 +25,5 @@ jobs:
           run: npm run build --if-present
         - name: Test Using Jest
           working-directory: ./client
-          run: npm test -- --coverage
+          run: npm test
         - name: Generate Coverage Report
-        #   working-directory: ./client
-        #   run: npm test -- --coverage
-        # - name: Upload to CodeCov
-        #   uses: codecov/codecov-action@v1
-        #   with:
-        #     token: ${{ secrets.CODECOV_TOKEN }}
-        #     name: codecov-umbrella
-        #     fail_ci_if_error: true
-        #     verbose: true
-          uses: paambaati/codeclimate-action@v2.7.4
-          env:
-            CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
-          with:
-            workingDirectory: client
-            coverageCommand: npm test -- --coverage --watchAll=false
