@@ -28,7 +28,7 @@ jobs:
         - name: Test Using Jest
           working-directory: ./client
           run: npm test
-        # - name: Generate Coverage Report
+        - name: Generate Coverage Report
         #   working-directory: ./client
         #   run: npm test -- --coverage
         # - name: Upload to CodeCov
@@ -38,7 +38,7 @@ jobs:
         #     name: codecov-umbrella
         #     fail_ci_if_error: true
         #     verbose: true
-        - uses: paambaati/codeclimate-action@v2.2.4
+          uses: paambaati/codeclimate-action@v2.2.4
           env:
             CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
           with:
