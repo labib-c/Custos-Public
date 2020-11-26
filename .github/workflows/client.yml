@@ -1,8 +1,8 @@
 name: Client Continuous Integration
 
 on:
-    pull_request:
-      branches: [ master ]
+    # pull_request:
+    #   branches: [ master ]
     push:
       branches: [master]
   

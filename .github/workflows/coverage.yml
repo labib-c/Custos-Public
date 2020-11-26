@@ -36,7 +36,8 @@ jobs:
         - name: Install Code Climate
           run: |
             mkdir -p tmp/
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp
+            ls tmp
             chmod +x ./tmp/cc-test-reporter
             ./../tmp/cc-test-reporter before-build
         - name: Generate Server Coverage
