@@ -1,4 +1,4 @@
-name: Client Continuous Integration
+name: Code Coverage Check
 
 on:
     pull_request:
