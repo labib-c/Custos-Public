@@ -2,6 +2,7 @@
 ![Server Continuous Integration](https://github.com/dcsil/Custos/workflows/Server%20Continuous%20Integration/badge.svg)
 ![Client Continuous Integration](https://github.com/dcsil/Custos/workflows/Client%20Continuous%20Integration/badge.svg)
 ![Deploy to Heroku](https://github.com/dcsil/Custos/workflows/Deploy%20to%20Heroku/badge.svg)
+[![codecov](https://codecov.io/gh/dcsil/Custos/branch/master/graph/badge.svg?token=D2E7LSBKN2)](https://codecov.io/gh/dcsil/Custos)
 
 ![Team Logo](./logo.png)
 
