@@ -26,3 +26,13 @@ jobs:
         - name: Test Using Jest
           working-directory: ./client
           run: npm test
+        - name: Generate Coverage Report
+          working-directory: ./client
+          run: npm test -- --coverage
+        - name: Upload to CodeCov
+          uses: codecov/codecov-action@v1
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            name: codecov-umbrella
+            fail_ci_if_error: true
+            verbose: true
