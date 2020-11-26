@@ -42,4 +42,5 @@ jobs:
           env:
             CC_TEST_REPORTER_ID: 91efde6e162dce796b87e283aa98e2eaf529e26ef4e3a79a04f3a92e742faff6
           with:
-            coverageCommand: cd client && npm test -- --coverage 
+            workingDirectory: client
+            coverageCommand: npm test -- --coverage 
