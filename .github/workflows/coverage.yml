@@ -49,7 +49,7 @@ jobs:
           working-directory: ./client
           run: |
             npm test -- --coverage --watchAll=false
-            ./../cc-test-reporter format-coverage -t lcov -o codeclimate.backend.json
+            ./../cc-test-reporter format-coverage -t lcov -o codeclimate.client.json
             mv codeclimate.client.json ../tmp
         - name: Upload to Code Climate
           env:
