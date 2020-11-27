@@ -8,7 +8,6 @@ from keras import models
 #Predict function which loads threshold and uses items
 
 def mean_squared_error(y_true, y_pred):
-    #Fix loss. It is too high
     loss = (y_true - y_pred)**2
     return np.mean(loss, axis=1)
 
