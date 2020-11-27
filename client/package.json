@@ -1,7 +1,9 @@
 {
   "name": "client",
   "jest": {
-    "coverageReporters": ["lcov"]
+    "coverageReporters": [
+      "lcov"
+    ]
   },
   "version": "0.1.0",
   "private": true,
@@ -14,6 +16,8 @@
     "@sentry/react": "^5.27.0",
     "@sentry/tracing": "^5.27.0",
     "@testing-library/user-event": "^7.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "firebase": "^8.0.2",
     "fontsource-roboto": "^3.0.3",
     "react": "^16.14.0",

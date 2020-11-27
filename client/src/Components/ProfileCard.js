@@ -8,7 +8,7 @@ import Card from '@material-ui/core/Card'
 export default function ProfileCard() {
     const {currentUser, logout} = useAuth();
     const [error, setError] = React.useState('')
-    const userEmail = JSON.stringify(currentUser.email).replace(/"/g, "")
+    const userEmail = currentUser ? JSON.stringify(currentUser.email).replace(/"/g, "") : ''
     const userName = "Test Account"
     async function handleLogout(e) {
         try {

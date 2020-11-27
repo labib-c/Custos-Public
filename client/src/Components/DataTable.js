@@ -108,7 +108,7 @@ export default function DataTable(props){
           <h2 style={{textAlign: 'left'}}>
           {props.header}
           {!props.removeFilter && <Tooltip title={!filter ? "Only Anomalies" : "All Findings"}>
-            <IconButton aria-label="only anomalies" onClick={e => {toggleFilter()}}>
+            <IconButton id="table-filter" aria-label="only anomalies" onClick={e => {toggleFilter()}}>
               <FilterListIcon />
             </IconButton>
           </Tooltip>
@@ -125,6 +125,7 @@ export default function DataTable(props){
                       style={{ minWidth: column.minWidth }}
                     >
                       <TableSortLabel
+                        className="sort-label"
                         active={orderBy === column.id}
                         direction={orderBy === column.id ? order : 'asc'}
                         onClick={ e => {handleRequestSort(e, column.id)}}>
