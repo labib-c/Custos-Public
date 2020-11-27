@@ -2,16 +2,56 @@ import React from 'react';
 import { render } from '@testing-library/react'
 import Login from '../../Components/Login';
 import { act } from 'react-dom/test-utils';
-const login = jest.fn()
-const AuthContext = React.createContext();
+import {AuthProvider} from '../../Context/AuthContext'
+import firebase from 'firebase/app';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { mount } from 'enzyme';
 
-it("delete this", () => {
-    render(<div></div>)
+const onAuthStateChanged = jest.fn()
+const createUserWithEmailAndPassword = jest.fn(() => {
+    return Promise.resolve('result of createUserWithEmailAndPassword')
 })
-// it("renders", () => {
 
-//     act(() => {render( <AuthContext.Provider value={login}>
-//                 <Login></Login>
-//             </AuthContext.Provider>)
-//     })
-// })
+const signInWithEmailAndPassword = jest.fn(() => {
+    return Promise.resolve('result of signInWithEmailAndPassword')
+  })
+
+const initializeApp = jest
+    .spyOn(firebase, 'initializeApp')
+    .mockImplementation(() => {
+        return {
+            auth: () => {
+            return {
+                createUserWithEmailAndPassword,
+                signInWithEmailAndPassword,
+                currentUser: {
+                sendEmailVerification
+                },
+                signInWithRedirect
+            }
+            }
+        }
+    })
+
+jest.spyOn(firebase, 'auth').mockImplementation(() => {
+    return {
+        onAuthStateChanged,
+        currentUser: {
+        displayName: 'testDisplayName',
+        email: 'test@test.com',
+        emailVerified: true
+        },
+        getRedirectResult,
+        sendPasswordResetEmail
+    }
+    })
+
+
+it("renders", () => {
+    act(() => {render(<AuthProvider>
+                        <Router>
+                            <Login></Login>
+                        </Router>
+                    </AuthProvider>)
+    })
+})

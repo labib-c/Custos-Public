@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { Paper, makeStyles, Grid, TextField, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { useAuth } from "../Context/AuthContext";
@@ -58,7 +58,7 @@ export default function Login() {
 
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         const listener = event => {
           if (event.code === "Enter" || event.code === "NumpadEnter") {
             handleSubmit(event)
