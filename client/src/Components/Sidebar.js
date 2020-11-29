@@ -121,7 +121,7 @@ export default function Sidebar(props){
                 <ListItem button >
                     <NavLink to="/"><img className={classes.image} alt="Custos" src={  largeIcon } ></img></NavLink> 
                 </ListItem>
-                <IconButton onClick={handleDrawer}>
+                <IconButton aria-label="expand or close sidebar" onClick={handleDrawer}>
                 { !open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                 </IconButton>
             </div>

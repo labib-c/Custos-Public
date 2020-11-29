@@ -147,7 +147,7 @@ export default function DataTable(props){
                           </TableCell>
                         );
                       })}
-                    {row.anomaly ? <NavLink to={"/alerts/"+row.name}><IconButton><WarningIcon className={classes.anomaly}></WarningIcon></IconButton></NavLink> : ''}
+                    {row.anomaly ? <NavLink to={"/alerts/"+row.name}><IconButton aria-label="View Anomaly"><WarningIcon className={classes.anomaly}></WarningIcon></IconButton></NavLink> : ''}
                     </TableRow>
                   );
                 })}

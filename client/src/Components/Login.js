@@ -129,7 +129,7 @@ export default function Login() {
                 <Grid container alignItems="center" justify="space-between">
 
                     <Grid item>
-                        <Button disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary">
+                        <Button aria-label="Go to Sign Up Page" disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary">
                             <NavLink className={classes.link} to="/signup"> Need an account? Sign up!</NavLink>
                         </Button>
                         
@@ -137,7 +137,7 @@ export default function Login() {
                 </Grid>
                 
                 <Grid container justify="center" style={{ marginTop: '10px' }}>
-                    <Button className={classes.button} disabled={loading} variant="outlined" style={{ textTransform: "none" }} onClick={handleSubmit}>Log In</Button>
+                    <Button aria-label="Log In button" className={classes.button} disabled={loading} variant="outlined" style={{ textTransform: "none" }} onClick={handleSubmit}>Log In</Button>
                 </Grid>
 
             </div>

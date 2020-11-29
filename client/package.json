@@ -4,10 +4,10 @@
     "coverageReporters": [
       "lcov"
     ],
-    "coveragePathIgnorePatterns" : [
+    "coveragePathIgnorePatterns": [
       "/node_modules/",
       "src/*index.js",
-      "src/*serviceWorker.js" 
+      "src/*serviceWorker.js"
     ]
   },
   "version": "0.1.0",

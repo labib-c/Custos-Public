@@ -32,7 +32,7 @@ export default function ProfileCard() {
                 </div>
             </Card>
             <div style={{marginTop: "40px"}}>
-                <Button variant="outlined" onClick={handleLogout}> Log Out </Button>
+                <Button aria-label="log out button" variant="outlined" onClick={handleLogout}> Log Out </Button>
             </div>
         </div>
     )
