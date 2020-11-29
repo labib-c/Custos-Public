@@ -5,11 +5,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  withRouter,
-  useLocation,
+  withRouter
 } from "react-router-dom";
 import './App.css';
-import Sidebar from "./Components/Sidebar";
 import Dashboard from "./Pages/Dashboard";
 import SignupPage from './Pages/SignupPage';
 import LoginPage from './Pages/LoginPage';
@@ -17,6 +15,7 @@ import ProfilePage from './Pages/ProfilePage';
 import DataPage from './Pages/DataPage';
 import AlertsPage from './Pages/AlertsPage';
 import StatsPage from './Pages/StatsPage';
+import EventAlert from './Pages/EventAlert';
 import { AuthProvider } from './Context/AuthContext';
 import PrivateRoute from './Components/PrivateRoute';
 
@@ -43,20 +42,11 @@ function App() {
           <PrivateRoute path="/alerts" exact component={AlertsPage}></PrivateRoute>
           <PrivateRoute path="/stat" exact component={StatsPage}></PrivateRoute>
           <PrivateRoute path="/profile" exact component={ProfilePage}></PrivateRoute>
-          <PrivateRoute path="/alerts/:eventId" component={withRouter(Event)}></PrivateRoute>
+          <PrivateRoute path="/alerts/:eventId" component={withRouter(EventAlert)}></PrivateRoute>
         </Switch>
       </AuthProvider>
     </Router>
   );
-}
-
-function Event(props) {
-  const location = useLocation();
-  return(
-    <Sidebar>
-      {location.pathname}
-    </Sidebar>
-  )
 }
 
 export default App;
