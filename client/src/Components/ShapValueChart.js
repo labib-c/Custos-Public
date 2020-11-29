@@ -19,7 +19,7 @@ export default function ShapValueChart(props) {
         <Paper className={classes.root} variant="outlined">
             <h2 style={{textAlign: 'left'}} > {props.header} </h2>
             <ResponsiveBar
-                data={props.data}
+                data={props.data.sort((a,b) => (a.ShapValue > b.ShapValue ? -1 : 1))}
                 keys={["ShapValue"]}
                 indexBy={"featureName"}
                 margin={{right: 130, bottom: 100, left: 130 }}
@@ -35,7 +35,7 @@ export default function ShapValueChart(props) {
                     tickSize: 5,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'SHAP Score',
+                    legend: 'Custos Score',
                     legendPosition: 'middle',
                     legendOffset: 32
                 }}
