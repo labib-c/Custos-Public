@@ -17,7 +17,7 @@ export default function EventAlert(props) {
 
     React.useEffect(() => {
         document.title = `Custos | Alert: ${props.match.params.eventId}`;
-      }, []);
+      }, [props.match.params.eventId]);
 
     return (
         <Sidebar>
