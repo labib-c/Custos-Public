@@ -58,5 +58,4 @@ function Event(props) {
     </Sidebar>
   )
 }
-
 export default App;
