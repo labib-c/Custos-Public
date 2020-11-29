@@ -74,7 +74,7 @@ export default function TimeSeries(props) {
                     legendOffset: -40,
                     legendPosition: 'middle'
                 }}
-                colors={{ scheme: 'pastel1' }}
+                colors={{ scheme: 'category10' }}
                 pointSize={10}
                 pointColor={{ theme: 'background' }}
                 pointBorderWidth={2}

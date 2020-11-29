@@ -55,7 +55,7 @@ export default function Doughnut(props) {
                 sortByValue={true}
                 innerRadius={0.55}
                 padAngle={4}
-                colors={{ scheme: 'pastel1' }}
+                colors={{ scheme: 'category10' }}
                 borderWidth={1}
                 borderColor={{ from: 'color', modifiers: [ [ 'darker', 0.2 ] ] }}
                 radialLabelsSkipAngle={10}
