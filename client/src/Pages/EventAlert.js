@@ -14,6 +14,11 @@ const useStyles = makeStyles({
 
 export default function EventAlert(props) {
     const classes = useStyles()
+
+    React.useEffect(() => {
+        document.title = `Custos | Alert: ${props.match.params.eventId}`;
+      }, []);
+
     return (
         <Sidebar>
             <h1 className={classes.header}>Event: {props.match.params.eventId}</h1>

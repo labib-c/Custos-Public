@@ -15,6 +15,11 @@ const useStyle = makeStyles((theme) => ({
 
 export default function StatsPage() {
     const classes = useStyle()
+
+    React.useEffect(() => {
+        document.title = "Custos | Statistics Page";
+      }, []);
+
     return (
         <Sidebar>
             <div className={classes.row}>

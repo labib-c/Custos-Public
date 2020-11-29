@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignupPage() {
     const classes = useStyles()
+
+    React.useEffect(() => {
+        document.title = "Custos | Login Page";
+      }, []);
+
     return (
         <div className={classes.root} >
             <FadeIn transitionDuration={1000}>

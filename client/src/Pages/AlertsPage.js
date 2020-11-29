@@ -4,6 +4,10 @@ import DataTable from "./../Components/DataTable"; //only for mock data we impor
 import {rows, columns} from './../mockData/tableData';
 
 export default function AlertsPage() {
+    React.useEffect(() => {
+        document.title = "Custos | Alerts Page";
+      }, []);
+
     function filterArray(array) {
         const filteredArray = array.filter(item => item.anomaly === true );
         return filteredArray;
