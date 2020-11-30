@@ -4,19 +4,15 @@ import numpy as np
 from sklearn.metrics import confusion_matrix
 from keras import models
 
-#Generate threshold function
-#Predict function which loads threshold and uses items
-
 def mean_squared_error(y_true, y_pred):
     loss = (y_true - y_pred)**2
     return np.mean(loss, axis=1)
 
-def main(model_file="model/model.h5", data_csv="preproc_data.csv"):
-    model = models.load_model(model_file)
-    data = pd.read_csv(data_csv)
-    
-    confusion_matrix = create_confusion(data, model)
-    print(confusion_matrix)
+def threshold_loss(data_loss, threshold_number):
+    anomalies = data_loss.sort_values(ascending=False, ignore_index=True).head(threshold_number)
+    threshold = anomalies.iloc[len(anomalies.index)-1]
+    print(f"Loss is thresholded at {threshold}.")
+    return data_loss >= threshold
 
 def create_confusion(data, model):
     #Find true anomaly values.
@@ -33,15 +29,17 @@ def create_confusion(data, model):
     data_prediction = model.predict(data_in)
     data_loss = mean_squared_error(data_in.values.tolist(), data_prediction)
     data_loss = pd.Series(data_loss)
-
-    anomalies = data_loss.sort_values(ascending=False, ignore_index=True).head(num_red)
-    threshold = anomalies.iloc[len(anomalies.index)-1]
-    print(f"Loss is thresholded at {threshold}.")
-    
-    predicted = data_loss >= threshold
+    predicted = threshold_loss(data_loss, num_red)
     y_true = data["Redteam"]
     
     return confusion_matrix(y_true, predicted)
+
+def main(model_file="model/model.h5", data_csv="preproc_data.csv"):
+    model = models.load_model(model_file)
+    data = pd.read_csv(data_csv)
+    
+    confusion_matrix = create_confusion(data, model)
+    print(confusion_matrix)
 
 if __name__ == "__main__":
     main()
