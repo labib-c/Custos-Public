@@ -11,18 +11,21 @@ CHAR_INDEX = ']0abcdefghijklmnopqrstuvwxyz'
 CHAR_INDEX +='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 CHAR_INDEX += '123456789'
 CHAR_INDEX += '().,-/+=&$?@#!*:;_[|%⸏{}\"\'' + ' ' +'\\'
-CHAR_TO_INT = dict((c, i) for i, c in enumerate(CHAR_INDEX))
+CHAR_TO_FLOAT = dict((c, round(i / (len(CHAR_INDEX)-1), 2)) for i, c in enumerate(CHAR_INDEX))
 
-def encode_sequence_list(seqs):
+PADDING_SIZES = {"source user@domain": 22, "destination user@domain": 22, "source computer": 6, "destination computer": 6}
+
+def encode_sequence_list(seqs, col_name):
+    padding_len = PADDING_SIZES[col_name]
     encoded_seqs = []
     counter = 0
     for seq in seqs:
-        encoded_seq = [CHAR_TO_INT[c] for c in seq]
+        encoded_seq = [CHAR_TO_FLOAT[c] for c in seq]
         encoded_seqs.append(encoded_seq)
-    return pad_sequences(encoded_seqs, padding='post')
-#Need to change padding to pad the same for other data.
+    return pad_sequences(encoded_seqs, padding='post', maxlen=padding_len, dtype="float32")
+
 def preprocess_str_col(df, col_name):
-    encoded_col = encode_sequence_list(df[col_name])
+    encoded_col = encode_sequence_list(df[col_name], col_name)
     col_names = []
     for i in range(len(encoded_col[0])):
         col_names.append(col_name + str(i))
@@ -48,7 +51,6 @@ def preprocess_dataframe(csv_name, csv_name_write, load_scalers):
         else:
             if load_scalers:
                 if col_name != "success/failure":
-                    print(col_name)
                     scaler = joblib.load("./scalers/" + col_name + "_le.save")
                 else:
                     scaler = joblib.load("./scalers/" + "success_failure_le.save")
