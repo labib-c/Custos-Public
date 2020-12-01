@@ -34,6 +34,11 @@ def post_anomalies():
     upload_data.upload_data()
     return "Success"
 
+@app.route("/post_background", methods=["POST"])
+def post_background():
+    upload_data.upload_background()
+    return "Success"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
     
