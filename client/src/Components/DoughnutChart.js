@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+// import Button from '@material-ui/core/Button';
+// import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ResponsivePie } from '@nivo/pie'
 
 const useStyles = makeStyles({
@@ -18,9 +18,9 @@ export default function Doughnut(props) {
     const classes = useStyles()
     const [filter, setFilter] = React.useState("1m")
 
-    const handleToggle = (event) => {
-        setFilter(event.currentTarget.value)
-    }
+    // const handleToggle = (event) => {
+    //     setFilter(event.currentTarget.value)
+    // }
 
     const selectData = (data) => {
         switch(filter) {
