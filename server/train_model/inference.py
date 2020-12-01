@@ -43,3 +43,4 @@ def main(model_file="model/model.h5", data_csv="preproc_data.csv"):
 
 if __name__ == "__main__":
     main()
+    
