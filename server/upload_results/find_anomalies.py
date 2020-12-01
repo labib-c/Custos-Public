@@ -29,6 +29,7 @@ def save_anomalies(data_csv, preproc_csv, model_file, data_save_csv):
     preproc_data = pd.read_csv(preproc_csv)
     medium_anomalies, high_anomalies = find_anomalies(preproc_data, model)
     data = pd.read_csv(data_csv)
+    data = data.drop(["Redteam"], axis=1)
     data = data[medium_anomalies]
     data["Anomaly"] = high_anomalies
     data.to_csv(data_save_csv, index=False)

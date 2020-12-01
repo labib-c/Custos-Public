@@ -19,7 +19,7 @@ db = firebase.database()
 
 def upload_data():
     db.child("data").remove()
-    for anomalous_data in pd.read_csv("anomalous_data.csv", chunksize=10):
+    for anomalous_data in pd.read_csv("./upload_results/anomalous_data.csv", chunksize=10):
         anomalous_data_json = anomalous_data.to_json(orient='records')
         anomalous_data_json = json.loads(anomalous_data_json)
         for example in anomalous_data_json:
