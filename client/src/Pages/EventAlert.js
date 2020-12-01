@@ -21,7 +21,7 @@ export default function EventAlert(props) {
 
     return (
         <Sidebar>
-            <h1 className={classes.header}>Event: {props.match.params.eventId}</h1>
+            <h1 className={classes.header}>Event Key: {props.match.params.eventId}</h1>
             <p className={classes.header} >----- Explanation about SHAP Values can go here -----</p>
             <ShapValueChart data={shapData} header={"Custos Scores"}></ShapValueChart>
             <DataTable rows={rows} columns={columns} header={"Related Events"}></DataTable>

@@ -128,7 +128,7 @@ export default function Sidebar(props){
             <Divider />
             <List>
             { menuContent.map(each => (
-                <NavLink className={classes.link} to={each.path}>
+                <NavLink className={classes.link} to={each.path} key={each.text}>
                   <ListItem className={pathname.includes(each.path) ? classes.active : ""} button key={each.text}>
                     <ListItemIcon className={pathname.includes(each.path) ? classes.activeIcon : ""}> {each.icon} </ListItemIcon>
                     <ListItemText primary={each.text} />

@@ -85,7 +85,7 @@ export default function DataTable(props){
     }
 
     function filterArray(array) {
-      const filteredArray = array.filter(item => item.anomaly === true );
+      const filteredArray = array.filter(item => item.Anomaly === true );
       return filteredArray;
     }
 
@@ -114,6 +114,7 @@ export default function DataTable(props){
           </Tooltip>
           }
           </h2>
+
           <TableContainer className={classes.container}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
@@ -138,16 +139,16 @@ export default function DataTable(props){
               <TableBody>
                 {stableSort(rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.key}>
                       {props.columns.map((column) => {
                         const value = row[column.id];
                         return (
-                          <TableCell className = {row.anomaly ? classes.anomaly : ''} key={column.id} align={column.align}>
+                          <TableCell className = {row.Anomaly ? classes.anomaly : ''} key={column.id} align={column.align}>
                             {column.format && typeof value === 'number' ? column.format(value) : value}
                           </TableCell>
                         );
                       })}
-                    {row.anomaly ? <NavLink to={"/alerts/"+row.name}><IconButton aria-label="View Anomaly"><WarningIcon className={classes.anomaly}></WarningIcon></IconButton></NavLink> : ''}
+                    {row.Anomaly ? <NavLink to={"/alerts/"+row.key}><IconButton aria-label="View Anomaly"><WarningIcon className={classes.anomaly}></WarningIcon></IconButton></NavLink> : ''}
                     </TableRow>
                   );
                 })}
@@ -155,6 +156,7 @@ export default function DataTable(props){
             </Table>
           </TableContainer>
           <TablePagination
+            style={{ display:"flex" }}
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
             count={rows.length}
