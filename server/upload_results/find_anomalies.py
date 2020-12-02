@@ -10,11 +10,11 @@ sys.path.insert(0,parentdir)
 
 from train_model.inference import mean_squared_error, threshold_loss
 
-def find_anomalies(preproc_data, model, medium_multiple=10):
-    data_in = preproc_data.drop(["Redteam"], axis=1)
+def find_anomalies(preproc_csv, model, medium_multiple=10):
     num_red = 10
     data_loss = pd.Series()
-    for chunk in np.array_split(data_in, 1000):
+    for chunk in pd.read_csv(preproc_csv, chunksize=19500):
+        chunk = chunk.drop(["Redteam"], axis=1)
         chunk_prediction = model.predict(chunk, verbose=1)
         chunk_loss = mean_squared_error(chunk.values.tolist(), chunk_prediction)
         chunk_loss = pd.Series(chunk_loss)
@@ -26,8 +26,7 @@ def find_anomalies(preproc_data, model, medium_multiple=10):
     
 def save_anomalies(data_csv, preproc_csv, model_file, data_save_csv):
     model = models.load_model(model_file)
-    preproc_data = pd.read_csv(preproc_csv)
-    medium_anomalies, high_anomalies = find_anomalies(preproc_data, model)
+    medium_anomalies, high_anomalies = find_anomalies(preproc_csv, model)
     data = pd.read_csv(data_csv)
     data = data.drop(["Redteam"], axis=1)
     data = data[medium_anomalies]
