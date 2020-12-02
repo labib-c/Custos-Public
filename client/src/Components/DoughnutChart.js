@@ -40,7 +40,7 @@ export default function Doughnut(props) {
     }
     return(
         <Paper className={classes.root} variant="outlined">
-            <h2 style={{textAlign: 'left'}} > Distribution
+            <h2 style={{textAlign: 'left'}} > {props.header}
             <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
                 <Button aria-label="one month" disabled={filter === '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
                 <Button aria-label="six months" disabled={filter === '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
@@ -68,7 +68,7 @@ export default function Doughnut(props) {
                         anchor: 'bottom',
                         direction: 'column',
                         justify: false,
-                        translateX: 0,
+                        translateX: -50,
                         translateY: 56,
                         itemsSpacing: 10,
                         itemWidth: 100,

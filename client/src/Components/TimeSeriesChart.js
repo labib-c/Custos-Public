@@ -4,7 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ResponsiveLine } from '@nivo/line'
-import { data } from '../mockData/timeData';
 
 const useStyles = makeStyles({
     root: {
@@ -41,7 +40,7 @@ export default function TimeSeries(props) {
     }
     return(
         <Paper className={classes.root} variant="outlined">
-            <h2 style={{textAlign: 'left'}} > Activity  
+            <h2 style={{textAlign: 'left'}} > {props.header} 
             <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
                 <Button aria-label="one month" disabled={filter === '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
                 <Button aria-label="six months" disabled={filter === '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
@@ -63,7 +62,7 @@ export default function TimeSeries(props) {
                     tickPadding: 5,
                     tickRotation: 0,
                     format: () => null,
-                    legend: 'Date (Epoch)',
+                    legend: props.xAxis,
                     legendOffset: 26,
                     legendPosition: 'middle'
                 }}
@@ -73,7 +72,7 @@ export default function TimeSeries(props) {
                     tickSize: 5,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'Number of Events',
+                    legend: props.yAxis,
                     legendOffset: -40,
                     legendPosition: 'middle'
                 }}

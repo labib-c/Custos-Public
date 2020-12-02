@@ -68,7 +68,6 @@ export const columns = [
 ];
 
 export function anomaliesToRegular(data){
-    
     const anomalies = {
         "id": "anomalies",
         "label": "Anomalous Events",
@@ -86,18 +85,27 @@ export function anomaliesToRegular(data){
     return [anomalies, reg]
 }
 
-export function getActivity(data){
-    let map = new Map()
-    data.forEach((value, index) => {
-       let first_n =  Math.round(value.time / Math.pow(10, Math.floor(Math.log10(value.time)) - 4 + 1));
-        if (map.has(first_n)){
-            map.get(first_n).num++
-        }
-        else{
-            map.set(first_n, {num: 1})
-        }
-    })
+export function successVsFailures(data){
     
+    const success = {
+        "id": "successes",
+        "label": "Successful Events",
+        
+        "value": data.filter((a) => a['success/failure'] === "Success").length,
+        "color": "hsl(168, 70%, 50%)"
+    }
+
+    const failures = {
+        "id": "failures",
+        "label": "Failed Events",
+        "value": data.filter((a) => a['success/failure'] === "Failure").length,
+        "color": "hsl(168, 70%, 50%)"
+    }
+
+    return [success, failures]
+}
+
+function createTimeObj(map){
     let activity = []
     const obj = {
         "id": "activity",
@@ -111,4 +119,36 @@ export function getActivity(data){
     })
     obj['data'] = activity
     return obj
+}
+
+export function getActivity(data){
+    let map = new Map()
+    data.forEach((value, index) => {
+       let first_n =  Math.round(value.time / Math.pow(10, Math.floor(Math.log10(value.time)) - 4 + 1));
+        if (map.has(first_n)){
+            map.get(first_n).num++
+        }
+        else{
+            map.set(first_n, {num: 1})
+        }
+    })
+    return createTimeObj(map)
+}
+
+export function getAnomalies(data){
+    let map = new Map()
+    data.forEach((value, index) => {
+        let first_n =  Math.round(value.time / Math.pow(10, Math.floor(Math.log10(value.time)) - 4 + 1));
+        if (map.has(first_n) && value.Anomaly){
+            map.get(first_n).num++
+        }
+        else{
+            map.set(first_n, {num: 0})
+        }
+        
+    })
+    console.log(createTimeObj(map))
+    return createTimeObj(map)
+
+
 }

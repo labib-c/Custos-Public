@@ -15,8 +15,8 @@ export default function Dashboard() {
     return(
         <Sidebar>
             <div style={{display: "flex", flexDirection: "row"}}>
-                <TimeSeries data={[getActivity(getData())]}></TimeSeries>
-                <Doughnut data={anomaliesToRegular(getData())} ></Doughnut>
+                <TimeSeries data={[getActivity(getData())]} xAxis={"Time"} yAxis={"Number of Events"} header={"Activity"}></TimeSeries>
+                <Doughnut data={anomaliesToRegular(getData())} header={"Distribution of Anomalies"}></Doughnut>
             </div>
             <DataTable rows={getData()} columns={columns} header={"Data"} ></DataTable>
         </Sidebar>
