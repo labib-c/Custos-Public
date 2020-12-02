@@ -29,6 +29,7 @@ export default function SignupPage() {
 
     React.useEffect(() => {
         document.title = "Custos | Login Page";
+        document.body.style.backgroundColor = "white"
       }, []);
 
     return (

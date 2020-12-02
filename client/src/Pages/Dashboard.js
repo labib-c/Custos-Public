@@ -3,24 +3,22 @@ import Sidebar from "./../Components/Sidebar";
 import DataTable from "./../Components/DataTable";
 import TimeSeries from "./../Components/TimeSeriesChart";
 import Doughnut from "./../Components/DoughnutChart";
-import {data} from './../mockData/timeData';
-import {getData, columns, anomaliesToRegular} from './../util/firebaseHelpers'
+import {getData, columns, anomaliesToRegular, getActivity} from './../util/firebaseHelpers'
 
-export default function Dashboard(props) {
-    const [tableData, setTableData] = React.useState([])
+export default function Dashboard() {
+
     React.useEffect( () => {
         document.title = "Custos | Dashboard";
-        setTableData(getData())
-
-      }, []);
-
+        document.body.style.backgroundColor = "#F4F4F3"
+    }, []);
+    
     return(
         <Sidebar>
             <div style={{display: "flex", flexDirection: "row"}}>
-                <TimeSeries data={data}></TimeSeries>
-                <Doughnut data={anomaliesToRegular(tableData)}></Doughnut>
+                <TimeSeries data={[getActivity(getData())]}></TimeSeries>
+                <Doughnut data={anomaliesToRegular(getData())} ></Doughnut>
             </div>
-            <DataTable rows={tableData} columns={columns} header={"Data"}></DataTable>
+            <DataTable rows={getData()} columns={columns} header={"Data"} ></DataTable>
         </Sidebar>
       );
 }

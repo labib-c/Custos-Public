@@ -52,6 +52,10 @@ export default function DataTable(props){
     const [filter, setFilter] = React.useState(false);
     const [rows, setRows] = React.useState(props.rows);
 
+    React.useEffect(() => {
+      setRows(props.rows)
+    }, [props.rows])
+
     const handleRequestSort = (event, property) => {
       const isAsc = orderBy === property && order === 'asc';
       setOrder(isAsc ? 'desc' : 'asc');

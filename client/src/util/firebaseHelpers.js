@@ -1,17 +1,19 @@
 import {db}from '../firebase'
 
+
 export function getData() {
-    const ref = db.ref('data')
     let data = []
     try{
-        ref.on('value', (snapshot) => {
+        db.ref('data').on('value', (snapshot) => {
             snapshot.forEach(child => {
                 let obj = JSON.parse(child.val())
                 obj['key'] = child.key
                 data.push(obj)
             })
         })
+
         return data
+
     } catch(err){
         console.log(err)
     }
@@ -82,4 +84,31 @@ export function anomaliesToRegular(data){
     }
 
     return [anomalies, reg]
+}
+
+export function getActivity(data){
+    let map = new Map()
+    data.forEach((value, index) => {
+       let first_n =  Math.round(value.time / Math.pow(10, Math.floor(Math.log10(value.time)) - 4 + 1));
+        if (map.has(first_n)){
+            map.get(first_n).num++
+        }
+        else{
+            map.set(first_n, {num: 1})
+        }
+    })
+    
+    let activity = []
+    const obj = {
+        "id": "activity",
+        "color": "hsl(170, 70%, 50%)"
+    }
+    map.forEach((value, idx) => {
+        activity.push({
+            "x": idx,
+            "y": value.num
+        })
+    })
+    obj['data'] = activity
+    return obj
 }

@@ -17,6 +17,7 @@ export default function EventAlert(props) {
 
     React.useEffect(() => {
         document.title = `Custos | Alert: ${props.match.params.eventId}`;
+        document.body.style.backgroundColor = "#F4F4F3"
       }, [props.match.params.eventId]);
 
     return (

@@ -81,6 +81,9 @@ const useStyles = makeStyles((theme) => ({
     },
     activeIcon: {
       color: "white"
+    },
+    icon: {
+      color: "black"
     }
   }));
 
@@ -130,7 +133,7 @@ export default function Sidebar(props){
             { menuContent.map(each => (
                 <NavLink className={classes.link} to={each.path} key={each.text}>
                   <ListItem className={pathname.includes(each.path) ? classes.active : ""} button key={each.text}>
-                    <ListItemIcon className={pathname.includes(each.path) ? classes.activeIcon : ""}> {each.icon} </ListItemIcon>
+                    <ListItemIcon className={pathname.includes(each.path) ? classes.activeIcon : classes.icon}> {each.icon} </ListItemIcon>
                     <ListItemText primary={each.text} />
                   </ListItem>
                 </NavLink>

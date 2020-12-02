@@ -18,6 +18,7 @@ export default function StatsPage() {
 
     React.useEffect(() => {
         document.title = "Custos | Statistics Page";
+        document.body.style.backgroundColor = "#F4F4F3"
       }, []);
 
     return (

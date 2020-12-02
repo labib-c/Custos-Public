@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-// import Button from '@material-ui/core/Button';
-// import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ResponsivePie } from '@nivo/pie'
 
 const useStyles = makeStyles({
@@ -18,9 +18,9 @@ export default function Doughnut(props) {
     const classes = useStyles()
     const [filter, setFilter] = React.useState("1m")
 
-    // const handleToggle = (event) => {
-    //     setFilter(event.currentTarget.value)
-    // }
+    const handleToggle = (event) => {
+        setFilter(event.currentTarget.value)
+    }
 
     const selectData = (data) => {
         switch(filter) {
@@ -41,11 +41,11 @@ export default function Doughnut(props) {
     return(
         <Paper className={classes.root} variant="outlined">
             <h2 style={{textAlign: 'left'}} > Distribution
-            {/* <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
+            <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
                 <Button aria-label="one month" disabled={filter === '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
                 <Button aria-label="six months" disabled={filter === '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
                 <Button aria-label="one year" disabled={filter === '1y'} value="1y" onClick={e => {handleToggle(e)}}>1Y</Button>
-            </ButtonGroup> */}
+            </ButtonGroup>
             </h2>
             <div style={{height: "80%", width: "100%"}}>
             <ResponsivePie

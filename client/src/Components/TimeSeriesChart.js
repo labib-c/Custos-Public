@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ResponsiveLine } from '@nivo/line'
+import { data } from '../mockData/timeData';
 
 const useStyles = makeStyles({
     root: {
@@ -25,10 +26,10 @@ export default function TimeSeries(props) {
     const selectData = (data) => {
         switch(filter) {
             case "1m": {
-                return data.slice(2);
+                return data;
             }
             case "6m": {
-                return data.slice(0,4);
+                return data;
             }
             case "1y": {
                 return data;
@@ -58,24 +59,26 @@ export default function TimeSeries(props) {
                 axisRight={null}
                 axisBottom={{
                     orient: 'bottom',
-                    tickSize: 5,
+                    tickSize: 0,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'transportation',
-                    legendOffset: 36,
+                    format: () => null,
+                    legend: 'Date (Epoch)',
+                    legendOffset: 26,
                     legendPosition: 'middle'
                 }}
+                // axisBottom={{legend: 'Date (Epoch)'}}
                 axisLeft={{
                     orient: 'left',
                     tickSize: 5,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'count',
+                    legend: 'Number of Events',
                     legendOffset: -40,
                     legendPosition: 'middle'
                 }}
                 colors={{ scheme: 'category10' }}
-                pointSize={10}
+                pointSize={0}
                 pointColor={{ theme: 'background' }}
                 pointBorderWidth={2}
                 pointBorderColor={{ from: 'serieColor' }}
