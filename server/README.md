@@ -8,3 +8,4 @@ The folder [upload_results](./upload_results/) contains files to perform inferen
 Information on this folder's files can be found [here](./upload_results/README.md).
 
 The folder [run_explainability](./run_explainability) contains files to calculate custos scores for the anomalous data found in [upload_results](./upload_results/).
+Information on this folder's files can be found [here](./run_explainability/README.md).
