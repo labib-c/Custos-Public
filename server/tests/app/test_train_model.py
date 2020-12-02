@@ -10,6 +10,12 @@ def test_error():
     error = mean_squared_error(y_true, y_pred)
     assert (np.array([1,0]) == error).all()
 
+def test_error_perfect():
+    y_true = np.array([[0, 1],[1, 0]])
+    y_pred = np.array([[0,1],[1,0]])
+    error = mean_squared_error(y_true, y_pred)
+    assert (np.array([0,0]) == error).all()
+
 def test_threshold():
     data = pd.Series([2,1,3])
     print(data)
@@ -34,4 +40,10 @@ def test_preprocess_dataframe():
     df = pd.DataFrame({"Redteam": [True], "source computer": ["]]]"]})
     preprocessed_df = preprocess_dataframe(df, False)
     true_df = pd.DataFrame({"Redteam": [True], "source computer0": [0], "source computer1": [0], "source computer2": [0], "source computer3": [0], "source computer4": [0], "source computer5": [0]})
+    assert (preprocessed_df == true_df).all().all()
+
+def test_preprocess_dataframe2():
+    df = pd.DataFrame({"Redteam": [False], "source computer": ["]]]"]})
+    preprocessed_df = preprocess_dataframe(df, False)
+    true_df = pd.DataFrame({"Redteam": [False], "source computer0": [0], "source computer1": [0], "source computer2": [0], "source computer3": [0], "source computer4": [0], "source computer5": [0]})
     assert (preprocessed_df == true_df).all().all()
