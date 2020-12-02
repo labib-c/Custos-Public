@@ -1,7 +1,7 @@
 function createData(name, code, population, size) {
     const density = population / size;
-    const anomaly = population > 1000000000
-    return { name, code, population, size, density, anomaly };
+    const Anomaly = population > 1000000000
+    return { name, code, population, size, density, Anomaly };
   }
   
 export const columns = [

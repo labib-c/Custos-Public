@@ -1,8 +1,10 @@
 import sentry_sdk
-from flask import Flask, render_template
+from flask import Flask, request
 from sentry_sdk.integrations.flask import FlaskIntegration
 import pyrebase
 import os
+import json
+import upload_results.upload_data as upload_data
 
 sentry_sdk.init(
     dsn="https://5dbbf50c14ee4124ad7a7e5124be414a@o358880.ingest.sentry.io/5450618",
@@ -22,28 +24,19 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-@app.route("/test", methods=["GET"])
-def hello():
-    return {
-        "response": "Hello World!"
-    }
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "Success"
 
-@app.route("/test_post", methods=["POST"])
-def post_data():
-    data = {
-        "name": "Mortimer 'Morty' Smith"
-    }
-    results = db.child("users").push(data)
-    return "Post Successful"
+@app.route("/post_custos_scores", methods=["POST"])
+def post_custos_scores():
+    upload_data.upload_custos_scores()
+    return "Success"
 
-@app.route("/test_firebase_get", methods=["GET"])
-def get_data():
-    name = db.child("Hello").get()
-    return name.val()
-
-@app.route('/debug-sentry')
-def trigger_error():
-    division_by_zero = 1 / 0
+@app.route("/post_anomalies", methods=["POST"])
+def post_anomalies():
+    upload_data.upload_data()
+    return "Success"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)

@@ -25,10 +25,10 @@ export default function TimeSeries(props) {
     const selectData = (data) => {
         switch(filter) {
             case "1m": {
-                return data.slice(2);
+                return data;
             }
             case "6m": {
-                return data.slice(0,4);
+                return data;
             }
             case "1y": {
                 return data;
@@ -40,11 +40,11 @@ export default function TimeSeries(props) {
     }
     return(
         <Paper className={classes.root} variant="outlined">
-            <h2 style={{textAlign: 'left'}} > Activity  
+            <h2 style={{textAlign: 'left'}} > {props.header} 
             <ButtonGroup style={{display: "flex"}} size="small" aria-label="small outlined button group">
-                <Button disabled={filter === '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
-                <Button disabled={filter === '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
-                <Button disabled={filter === '1y'} value="1y" onClick={e => {handleToggle(e)}}>1Y</Button>
+                <Button aria-label="one month" disabled={filter === '1m'} value="1m" onClick={e => {handleToggle(e)}}>1M</Button>
+                <Button aria-label="six months" disabled={filter === '6m'} value="6m" onClick={e => {handleToggle(e)}}>6M</Button>
+                <Button aria-label="one year" disabled={filter === '1y'} value="1y" onClick={e => {handleToggle(e)}}>1Y</Button>
             </ButtonGroup>
             </h2>
             <div style={{height: "80%", width: "100%"}}>
@@ -58,24 +58,26 @@ export default function TimeSeries(props) {
                 axisRight={null}
                 axisBottom={{
                     orient: 'bottom',
-                    tickSize: 5,
+                    tickSize: 0,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'transportation',
-                    legendOffset: 36,
+                    format: () => null,
+                    legend: props.xAxis,
+                    legendOffset: 26,
                     legendPosition: 'middle'
                 }}
+                // axisBottom={{legend: 'Date (Epoch)'}}
                 axisLeft={{
                     orient: 'left',
                     tickSize: 5,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'count',
+                    legend: props.yAxis,
                     legendOffset: -40,
                     legendPosition: 'middle'
                 }}
-                colors={{ scheme: 'pastel1' }}
-                pointSize={10}
+                colors={{ scheme: 'category10' }}
+                pointSize={0}
                 pointColor={{ theme: 'background' }}
                 pointBorderWidth={2}
                 pointBorderColor={{ from: 'serieColor' }}
