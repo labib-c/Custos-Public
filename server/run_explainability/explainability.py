@@ -74,16 +74,19 @@ class CustosScore:
 def get_all_scores(anomalies_csv, background_csv, model_file, data_save_csv):
     custos_scoring = CustosScore(model_file=model_file)
     background_df = pd.read_csv(background_csv)
-    example_df = pd.read_csv(anomalies_csv).drop(["Anomaly"], axis=1)
+    example_df = pd.read_csv(anomalies_csv)
+    anomalies = example_df["Anomaly"]
+    example_df = example_df.drop(["Anomaly"], axis=1)
     example_df = preprocess_dataframe(example_df, load_scalers=True, scaler_folder="../train_model/scalers/")
     background_df = preprocess_dataframe(background_df, load_scalers=True, scaler_folder="../train_model/scalers/")
 
     custos_scores = pd.DataFrame()
     for index, row in example_df.iterrows():
-        custos_scores_example = custos_scoring.get_custos_score(pd.DataFrame(row).T, background_df)
-        custos_scores = pd.concat([custos_scores, custos_scores_example], ignore_index=True)
-        print(custos_scores)
-    custos_scores.to_csv(data_save_csv, index=False)
+        if anomalies[index].all():
+            custos_scores_example = custos_scoring.get_custos_score(pd.DataFrame(row).T, background_df)
+            custos_scores_example.index = [index]
+            custos_scores = pd.concat([custos_scores, custos_scores_example])
+    custos_scores.to_csv(data_save_csv)
     
 if __name__ == "__main__":
     get_all_scores("../upload_results/anomalous_data.csv", "../upload_results/background.csv", "../train_model/model/model.h5", "../upload_results/custos_scores.csv")
