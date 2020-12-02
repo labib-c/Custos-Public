@@ -6,6 +6,7 @@ COPY ./requirements.txt /app/requirements.txt
 
 RUN apt-get update -qqy && apt-get install -qqy libopenblas-dev gfortran
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install tensorflow
 
 COPY . /app
 
