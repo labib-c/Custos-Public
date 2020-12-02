@@ -1,8 +1,9 @@
 import sentry_sdk
-from flask import Flask, render_template
+from flask import Flask, request
 from sentry_sdk.integrations.flask import FlaskIntegration
 import pyrebase
 import os
+import json
 import upload_results.upload_data as upload_data
 
 sentry_sdk.init(
@@ -23,22 +24,19 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-@app.route("/get_custos_scores/<id_number>", methods=["GET"])
-def get_custos_score(id_number):
-    data_anomaly = db.child("data").get(id_number)
-    
-    return data_anomaly
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "Success"
+
+@app.route("/post_custos_scores", methods=["POST"])
+def post_custos_scores():
+    upload_data.upload_custos_scores()
+    return "Success"
 
 @app.route("/post_anomalies", methods=["POST"])
 def post_anomalies():
     upload_data.upload_data()
     return "Success"
 
-@app.route("/post_background", methods=["POST"])
-def post_background():
-    upload_data.upload_background()
-    return "Success"
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
-    

@@ -36,4 +36,3 @@ def save_anomalies(data_csv, preproc_csv, model_file, data_save_csv):
 
 if __name__ == "__main__":
     save_anomalies("../train_model/data.csv", "../train_model/preproc_data.csv", "../train_model/model/model.h5", "anomalous_data.csv")
-    
