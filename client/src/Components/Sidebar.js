@@ -81,6 +81,9 @@ const useStyles = makeStyles((theme) => ({
     },
     activeIcon: {
       color: "white"
+    },
+    icon: {
+      color: "black"
     }
   }));
 
@@ -121,16 +124,16 @@ export default function Sidebar(props){
                 <ListItem button >
                     <NavLink to="/"><img className={classes.image} alt="Custos" src={  largeIcon } ></img></NavLink> 
                 </ListItem>
-                <IconButton onClick={handleDrawer}>
+                <IconButton aria-label="expand or close sidebar" onClick={handleDrawer}>
                 { !open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                 </IconButton>
             </div>
             <Divider />
             <List>
             { menuContent.map(each => (
-                <NavLink className={classes.link} to={each.path}>
+                <NavLink className={classes.link} to={each.path} key={each.text}>
                   <ListItem className={pathname.includes(each.path) ? classes.active : ""} button key={each.text}>
-                    <ListItemIcon className={pathname.includes(each.path) ? classes.activeIcon : ""}> {each.icon} </ListItemIcon>
+                    <ListItemIcon className={pathname.includes(each.path) ? classes.activeIcon : classes.icon}> {each.icon} </ListItemIcon>
                     <ListItemText primary={each.text} />
                   </ListItem>
                 </NavLink>

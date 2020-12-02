@@ -160,14 +160,14 @@ export default function Signup() {
 
                 <Grid container alignItems="center" justify="flex-end">
                     <Grid item>
-                        <Button disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary">
+                        <Button aria-label="go to login page" disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary">
                             <NavLink className={classes.link} to="/login">Already have an account? Log In</NavLink>
                         </Button>
                     </Grid>
                 </Grid>
                 
                 <Grid container justify="center" style={{ marginTop: '10px' }}>
-                    <Button className={classes.button} disabled={loading} variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={handleSubmit}>Sign Up</Button>
+                    <Button aria-label="sign up button" className={classes.button} disabled={loading} variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={handleSubmit}>Sign Up</Button>
                 </Grid>
 
             </div>
