@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database'
 
 //TODO replace these with environemt variables when repo public
 const app = firebase.initializeApp({
@@ -14,4 +15,5 @@ const app = firebase.initializeApp({
 });
 
 export const auth = app.auth();
+export const db = app.database();
 export default app;
