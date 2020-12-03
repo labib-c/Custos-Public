@@ -26,10 +26,11 @@ export default function EventProfile(props) {
                 if (parseInt(item.key) === props.match){
                     setEvent(item)
                 }
+                return 0
             })
         }
         data()
-    }, [])
+    }, [props.match])
 
     return (
         <div>

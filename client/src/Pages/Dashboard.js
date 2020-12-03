@@ -3,7 +3,7 @@ import Sidebar from "./../Components/Sidebar";
 import DataTable from "./../Components/DataTable";
 import TimeSeries from "./../Components/TimeSeriesChart";
 import Doughnut from "./../Components/DoughnutChart";
-import {getData, columns, anomaliesToRegular, getActivity, getCustosScore} from './../util/firebaseHelpers'
+import {getData, columns, anomaliesToRegular, getActivity} from './../util/firebaseHelpers'
 
 export default function Dashboard() {
     const [data, setData] = React.useState([])
@@ -11,9 +11,8 @@ export default function Dashboard() {
         document.title = "Custos | Dashboard";
         document.body.style.backgroundColor = "#F4F4F3"
         async function data() {
-            let data1 = await getCustosScore(38)
-            let data2 = await getData()
-            setData(data2)
+            let data = await getData()
+            setData(data)
         }
         data()
         
