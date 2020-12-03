@@ -15,12 +15,12 @@ const useStyles = makeStyles({
 
 export default function ShapValueChart(props) {
     const classes = useStyles()
-    const getColour = value => value > 0 ? '#abc5fe' : '#ff6961';
+    const getColour = value => value < 0 ? '#abc5fe' : '#ff6961';
     return (
         <Paper className={classes.root} variant="outlined">
             <h2 style={{textAlign: 'left'}} > {props.header} </h2>
             <ResponsiveBar
-                data={props.data.sort((a,b) => (a['custosScore'] > b['custosScore'] ? -1 : 1))}
+                data={props.data.sort((a,b) => (a['custosScore'] < b['custosScore'] ? -1 : 1))}
                 keys={["normalized"]}
                 indexBy={"id"}
                 margin={{right: 130, bottom: 100, left: 150 }}
