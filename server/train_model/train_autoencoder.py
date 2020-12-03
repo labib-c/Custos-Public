@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-import inference
+import server.train_model.inference as inference
 
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
