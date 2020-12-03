@@ -5,9 +5,9 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
     root: {
-        height: "20em",
-        width: "30em",
-        padding: "10px",
+        height: "27em",
+        width: "40em",
+        padding: "30px",
         paddingTop: "20px",
         margin: "15px"
     },
@@ -37,23 +37,23 @@ export default function EventProfile(props) {
             {event && 
             <Paper className={classes.root} variant={'outlined'}>
                 
-                <div className={classes.item}><strong>Auth Orientation:</strong> {event['authentication orientation']}</div>
+                <div className={classes.item}><strong>Auth Orientation: &nbsp;</strong> {event['authentication orientation']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Auth Type:</strong> {event['authentication type']}</div>
+                <div className={classes.item}><strong>Auth Type: &nbsp;</strong> {event['authentication type']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Dest. Computer:</strong> {event['destination computer']}</div>
+                <div className={classes.item}><strong>Dest. Computer: &nbsp;</strong> {event['destination computer']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Dest. User:</strong> {event['destination user@domain']}</div>
+                <div className={classes.item}><strong>Dest. User: &nbsp;</strong> {event['destination user@domain']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Logon Type:</strong> {event['logon type']}</div>
+                <div className={classes.item}><strong>Logon Type: &nbsp;</strong> {event['logon type']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Source Computer:</strong> {event['source computer']}</div>
+                <div className={classes.item}><strong>Source Computer: &nbsp;</strong> {event['source computer']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Source User:</strong> {event['source user@domain']}</div>
+                <div className={classes.item}><strong>Source User: &nbsp;</strong> {event['source user@domain']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Success/Fail:</strong> {event['success/failure']}</div>
+                <div className={classes.item}><strong>Success/Fail: &nbsp;</strong> {event['success/failure']}</div>
                 <br></br>
-                <div className={classes.item}><strong>Time:</strong> {event['time']}</div>
+                <div className={classes.item}><strong>Time: &nbsp;</strong> {event['time']}</div>
             </Paper>}
         </div>
     )
