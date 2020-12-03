@@ -169,14 +169,53 @@ export async function getCustosScore(key) {
 
 function modifyCustosScores(data) {
     let modified = []
+    let min_neg =  1
+    let min_pos = 1
+    let max_neg = 0
+    let max_pos = 0
+
+    Object.entries(data).forEach(item => {
+        if (item[1] < 0){
+            if (Math.abs(item[1]) < min_neg ){
+                min_neg = Math.abs(item[1])
+            }
+            else if(Math.abs(item[1]) > max_neg) {
+                max_neg = Math.abs(item[1])
+            }
+        }
+        else{
+            if (item[1] < min_pos){
+                min_pos = item[1]
+            }
+            else if(item[1] > max_pos){
+                max_pos = item[1]
+            }
+        }
+
+        
+    })
+    const getNormalized = (x) => {
+        return Math.round((x >= 0 ? ((x - min_pos) / (max_pos - min_pos)) : -1*(( Math.abs(x) - min_neg) / (max_neg - min_neg)))*100) / 100
+    }
     Object.entries(data).forEach((item) => {
-        console.log(item)
         let obj = {
             "id": item[0],
-            "custosScore": item[1]
+            "custosScore": item[1],
+            "normalized": getNormalized(item[1])
         }
         modified.push(obj)
     })
 
     return modified
+}
+
+export function getRelatedEvents(data, time) {
+    let related = []
+    for (let i = 0; i < data.length; i++){
+        if (parseInt(data[i].time) > (time - 100000) && parseInt(data[i].time) < (time + 100000)){
+            related.push(data[i])
+        }
+    }
+
+    return related
 }
