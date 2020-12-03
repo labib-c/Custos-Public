@@ -125,7 +125,7 @@ Colour Part II | [Colours are chosen in a way that won't make things difficult f
 # Frontend
 * Home page contains detailed information on past events.
  * Anomalies can be found by clicking the "Only Anomalies" button above the table
-* The red ! brings the analyst to a more informative page on the alert
+* The red "!" brings the analyst to a more informative page on the alert
  * Custos Scores (derived from SHAP values) provide model explainability
  * A positive Custos Score implies the feature made the example more anomalous
  * A negative Custos Score implies the feature made the example less anomalous
