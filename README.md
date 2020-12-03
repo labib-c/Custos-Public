@@ -120,30 +120,3 @@ Guideline | Summary | Description of how you accommodated this
 4.1.1 – Parsing | No major code errors | CI checks for code errors, none currently
 4.1.2 – Name, Role, Value | Build all elements for accessibility | All components have names and labels, HTML validated, everything parses correctly, and we're using third party libraries that have a large user base with an active open source community
 Colour Part II | [Colours are chosen in a way that won't make things difficult for colour blind users](https://venngage.com/blog/color-blind-friendly-palette/) | Colours chosen to accomadate colour blind users.
-
-## Video Writeup
-# Frontend
-* Home page contains detailed information on past events.
- * Anomalies can be found by clicking the "Only Anomalies" button above the table
-* The red "!" brings the analyst to a more informative page on the alert
- * Custos Scores (derived from SHAP values) provide model explainability
- * A positive Custos Score implies the feature made the example more anomalous
- * A negative Custos Score implies the feature made the example less anomalous
-* All data is fetched from the firebase.
-# Backend
-* server/train_model folder contains the code used to train the threat detection model
- * Model is trained on a cluster separately from the website.
- * auth.txt.gz and redteam.txt.gz must be downloaded to this folder.
- * Data is subsampled and preprocessed prior to training the model.
-* server/upload_data contains the code used to predict anomalies
- * find_anomalies.py and find_background.py must be run to generate required csv files
- * Host the website locally and send a post request to the proper route.
- * Data from the csv's will then be posted to firebase.
-* server/run_explainability contains the code used to generate Custos Scores
- * explainability.py uses the csv's generated from find_anomalies.py and find_background.py to generate Custos Scores for the anomalies
- * data is stored in a csv in server/upload_data and is then uploaded to firebase via the post command
-* In the future, we will stream data directly from the client and the data flow will occur as follows:
- * the model picks out anomalies
- * the explainability is run on all anomalies to generate Custos Scores
- * data is sent to the firebase to then be fetched by the frontend
- * All code is set up so that we can quickly and efficiently rotate to this production system
