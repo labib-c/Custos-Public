@@ -6,19 +6,25 @@ import Doughnut from "./../Components/DoughnutChart";
 import {getData, columns, anomaliesToRegular, getActivity} from './../util/firebaseHelpers'
 
 export default function Dashboard() {
-
+    const [data, setData] = React.useState([])
     React.useEffect( () => {
         document.title = "Custos | Dashboard";
         document.body.style.backgroundColor = "#F4F4F3"
+        async function data() {
+            let data = await getData()
+            setData(data)
+        }
+        data()
+        
     }, []);
     
     return(
         <Sidebar>
             <div style={{display: "flex", flexDirection: "row"}}>
-                <TimeSeries data={[getActivity(getData())]} xAxis={"Time"} yAxis={"Number of Events"} header={"Activity"}></TimeSeries>
-                <Doughnut data={anomaliesToRegular(getData())} header={"Distribution of Anomalies"}></Doughnut>
+                <TimeSeries data={[getActivity(data)]} xAxis={"Time"} yAxis={"Number of Events"} header={"Activity"}></TimeSeries>
+                <Doughnut data={anomaliesToRegular(data)} header={"Distribution of Anomalies"}></Doughnut>
             </div>
-            <DataTable rows={getData()} columns={columns} header={"Data"} ></DataTable>
+            <DataTable rows={data} columns={columns} header={"Data"} ></DataTable>
         </Sidebar>
       );
 }

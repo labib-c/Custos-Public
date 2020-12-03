@@ -1,18 +1,18 @@
 import {db} from '../firebase'
 
 
-export function getData() {
+export async function getData() {
     let data = []
     try{
-        db.ref('data').on('value', (snapshot) => {
+        await db.ref('data').once('value', (snapshot) => {
             snapshot.forEach(child => {
                 let obj = JSON.parse(child.val())
                 obj['key'] = child.key
                 data.push(obj)
             })
         })
-
         return data
+        
 
     } catch(err){
         console.log(err)
@@ -98,11 +98,11 @@ export function successVsFailures(data){
     const failures = {
         "id": "failures",
         "label": "Failed Events",
-        "value": data.filter((a) => a['success/failure'] === "Failure").length,
+        "value": data.filter((a) => a['success/failure'] === "Fail").length,
         "color": "hsl(168, 70%, 50%)"
     }
 
-    return [success, failures]
+    return [failures, success]
 }
 
 function createTimeObj(map){
@@ -147,8 +147,75 @@ export function getAnomalies(data){
         }
         
     })
-    console.log(createTimeObj(map))
     return createTimeObj(map)
 
+}
 
+export async function getCustosScore(key) {
+    let data = []
+    try{
+        
+        await db.ref("custos_score").child(key).once('value').then(snapshot => {
+            data.push(JSON.parse(snapshot.val()))
+        }).catch((err) => {
+            console.log(err)
+        })
+        return modifyCustosScores(data[0])
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
+function modifyCustosScores(data) {
+    let modified = []
+    let min_neg =  1
+    let min_pos = 1
+    let max_neg = 0
+    let max_pos = 0
+
+    Object.entries(data).forEach(item => {
+        if (item[1] < 0){
+            if (Math.abs(item[1]) < min_neg ){
+                min_neg = Math.abs(item[1])
+            }
+            else if(Math.abs(item[1]) > max_neg) {
+                max_neg = Math.abs(item[1])
+            }
+        }
+        else{
+            if (item[1] < min_pos){
+                min_pos = item[1]
+            }
+            else if(item[1] > max_pos){
+                max_pos = item[1]
+            }
+        }
+
+        
+    })
+    const getNormalized = (x) => {
+        return Math.round((x >= 0 ? ((x - min_pos) / (max_pos - min_pos)) : -1*(( Math.abs(x) - min_neg) / (max_neg - min_neg)))*100) / 100
+    }
+    Object.entries(data).forEach((item) => {
+        let obj = {
+            "id": item[0],
+            "custosScore": item[1],
+            "normalized": getNormalized(item[1])
+        }
+        modified.push(obj)
+    })
+
+    return modified
+}
+
+export function getRelatedEvents(data, time) {
+    let related = []
+    for (let i = 0; i < data.length; i++){
+        if (parseInt(data[i].time) > (time - 100000) && parseInt(data[i].time) < (time + 100000)){
+            related.push(data[i])
+        }
+    }
+
+    return related
 }

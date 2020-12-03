@@ -1,15 +1,18 @@
 import React from 'react'
 import Sidebar from "./../Components/Sidebar";
-import DataTable from "./../Components/DataTable"; //only for mock data we import filterArray
-// import {rows, columns} from './../mockData/tableData';
+import DataTable from "./../Components/DataTable";
 import {getData, columns} from '../util/firebaseHelpers'
 
 export default function AlertsPage() {
-    // const [rows, setRows] = React.useState([])
+    const [rows, setRows] = React.useState([])
     React.useEffect(() => {
         document.title = "Custos | Alerts Page";
         document.body.style.backgroundColor = "#F4F4F3"
-        // setRows(filterArray(getData()))
+        async function data() {
+            let data = await getData()
+            setRows(data)
+        }
+        data()
       }, []);
 
     function filterArray(array) {
@@ -19,7 +22,7 @@ export default function AlertsPage() {
 
     return (
         <Sidebar>
-            <DataTable rows={filterArray(getData())} columns={columns} header={"Alerts"} ></DataTable>
+            <DataTable rows={filterArray(rows)} columns={columns} header={"Alerts"}  removeFilter={true}></DataTable>
         </Sidebar>
     )
 }
