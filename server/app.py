@@ -8,8 +8,7 @@ import upload_results.upload_data as upload_data
 
 sentry_sdk.init(
     dsn="https://5dbbf50c14ee4124ad7a7e5124be414a@o358880.ingest.sentry.io/5450618",
-    integrations=[FlaskIntegration()],
-    traces_sample_rate=1.0
+    integrations=[FlaskIntegration()]
 )
 
 app = Flask(__name__)
